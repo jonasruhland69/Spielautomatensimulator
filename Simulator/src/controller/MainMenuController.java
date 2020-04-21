@@ -35,6 +35,7 @@ public class MainMenuController {
 
     @FXML
     void clickOnChooseGame(ActionEvent event) {
+            mainApp.loadGameSelection();
     }
 
     @FXML
@@ -47,5 +48,8 @@ public class MainMenuController {
 
     public void setMainApp(MainApp mainApp) {
         this.mainApp = mainApp;
+    }
+    public void setCoins(int coins){
+        coinsLabel.setText(String.valueOf(coins));
     }
 }
