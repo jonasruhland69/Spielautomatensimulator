@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GameSelectionController">
+   <children>
+      <Label fx:id="backToMainMenu" layoutX="20.0" layoutY="14.0" onMouseClicked="#backClicked" prefHeight="38.0" prefWidth="79.0" text="&lt;Back">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <Label layoutX="130.0" layoutY="33.0" prefHeight="111.0" prefWidth="340.0" text=" Game Selection" textAlignment="CENTER">
+         <font>
+            <Font size="46.0" />
+         </font>
+      </Label>
+      <Label fx:id="slotmachineSelection" layoutX="88.0" layoutY="144.0" prefHeight="60.0" prefWidth="425.0" style="-fx-background-color: #ffcc33;" text=" Slotmachine" />
+      <Label fx:id="rouletteSelection" layoutX="88.0" layoutY="215.0" prefHeight="60.0" prefWidth="425.0" style="-fx-background-color: grey;" text=" Roulette" />
+      <Label fx:id="blackJackSelection" layoutX="88.0" layoutY="292.0" prefHeight="60.0" prefWidth="425.0" style="-fx-background-color: grey;" text=" Black Jack" />
+      <ImageView fitHeight="50.0" fitWidth="38.0" layoutX="460.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/slots_spielauswahl2.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="38.0" layoutX="460.0" layoutY="220.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/roulette_spielauswahl.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="38.0" layoutX="460.0" layoutY="297.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/Black_Jack_spielauswahl.jpg" />
+         </image>
+      </ImageView>
+      <Label fx:id="coinsLabel" layoutX="525.0" layoutY="370.0" text="Coins" />
+      <ImageView fx:id="coinPicture" fitHeight="33.0" fitWidth="85.0" layoutX="485.0" layoutY="362.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/Coin.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="coinsLabelBlackJack" layoutX="306.0" layoutY="314.0" text="1000" />
+      <ImageView fx:id="coinPicture1" fitHeight="33.0" fitWidth="85.0" layoutX="266.0" layoutY="306.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/Coin.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="coinsLabelRoulette" layoutX="306.0" layoutY="237.0" text="500" />
+      <ImageView fx:id="coinPicture11" fitHeight="33.0" fitWidth="85.0" layoutX="266.0" layoutY="229.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/Coin.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

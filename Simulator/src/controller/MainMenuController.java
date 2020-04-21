@@ -1,27 +1,24 @@
 package controller;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import model.MainApp;
 
+
+
+
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
+
 public class MainMenuController {
-
     private MainApp mainApp;
-
-    @FXML
-    private ImageView coinPicture;
-
-    @FXML
-    private Button chooseGameButton;
-
-    @FXML
-    private Button achievementsButton;
-
-    @FXML
-    private Button endGameButton;
 
     @FXML
     private Label coinsLabel;
@@ -30,20 +27,51 @@ public class MainMenuController {
     private Button saveButton;
 
     @FXML
-    void clickOnAchievementsButton(ActionEvent event) {
-    }
+    private ImageView coinPicture;
 
     @FXML
-    void clickOnChooseGame(ActionEvent event) {
-            mainApp.loadGameSelection();
-    }
+    private Label spielautomatLabel;
 
     @FXML
-    void clickOnEndGameButton(ActionEvent event) {
-    }
+    private Label achievementLabel;
+
+    @FXML
+    private ImageView raster1Image;
+
+    @FXML
+    private ImageView spielautomatImage;
+
+    @FXML
+    private Label beendenLabel;
+
+    @FXML
+    private ImageView raster2Image;
+
+    @FXML
+    private ImageView achievementImage;
+
+    @FXML
+    private ImageView beendenImage;
 
     @FXML
     void clickOnSaveButton(ActionEvent event) {
+
+    }
+
+    @FXML
+    void close(MouseEvent event) {
+        Platform.exit();
+    }
+
+    @FXML
+    void openAchievements(MouseEvent event) {
+
+    }
+
+    @FXML
+    void openGameSelection(MouseEvent event) {
+        mainApp.loadGameSelection();
+
     }
 
     public void setMainApp(MainApp mainApp) {
@@ -52,4 +80,5 @@ public class MainMenuController {
     public void setCoins(int coins){
         coinsLabel.setText(String.valueOf(coins));
     }
+
 }
