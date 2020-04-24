@@ -1,7 +1,9 @@
 package model;
 
+import controller.AchievementController;
 import controller.GameSelectionController;
 import controller.MainMenuController;
+import controller.SlotmaschinController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -17,6 +19,8 @@ public class MainApp extends Application {
         Player player = new Player(100);
         MainMenuController mainMenuController = new MainMenuController();
         GameSelectionController gameSelectionController = new GameSelectionController();
+        AchievementController achievementController= new AchievementController();
+        SlotmaschinController slotmaschinController= new SlotmaschinController();
 
         @Override
         public void start(Stage primaryStage) throws Exception{
@@ -43,6 +47,37 @@ public class MainApp extends Application {
                 showLoadingError("Game Selection");
             }
         }
+
+    public void loadAchievemensts(){
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("../view/achievements.fxml"));
+            Parent root = loader.load();
+            stage.setTitle("Spielautomatensimulator (Achievements)");
+            stage.setScene(new Scene(root));
+            achievementController = loader.getController();
+            achievementController.setMainApp(this);
+            stage.show();
+
+        }catch (IOException e) {
+            showLoadingError("Achievements");
+        }
+    }
+    public void loadSlotmaschine(){
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("../view/slotmaschine.fxml"));
+            Parent root = loader.load();
+            stage.setTitle("Spielautomatensimulator (Slotmaschine)");
+            stage.setScene(new Scene(root));
+            slotmaschinController = loader.getController();
+            slotmaschinController.setMainApp(this);
+            stage.show();
+
+        }catch (IOException e) {
+            showLoadingError("Slotmaschine");
+        }
+    }
 
         public void loadMainMenu() {
             try {

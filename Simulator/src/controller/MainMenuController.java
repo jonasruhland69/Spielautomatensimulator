@@ -65,7 +65,7 @@ public class MainMenuController {
 
     @FXML
     void openAchievements(MouseEvent event) {
-
+            mainApp.loadAchievemensts();
     }
 
     @FXML

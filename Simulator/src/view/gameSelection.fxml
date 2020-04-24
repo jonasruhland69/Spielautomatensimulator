@@ -6,7 +6,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GameSelectionController">
    <children>
       <Label fx:id="backToMainMenu" layoutX="20.0" layoutY="14.0" onMouseClicked="#backClicked" prefHeight="38.0" prefWidth="79.0" text="&lt;Back">
@@ -19,7 +18,7 @@
             <Font size="46.0" />
          </font>
       </Label>
-      <Label fx:id="slotmachineSelection" layoutX="88.0" layoutY="144.0" prefHeight="60.0" prefWidth="425.0" style="-fx-background-color: #ffcc33;" text=" Slotmachine" />
+      <Label fx:id="slotmachineSelection" layoutX="88.0" layoutY="144.0" onMouseClicked="#openSlotmaschine" prefHeight="60.0" prefWidth="425.0" style="-fx-background-color: #ffcc33;" text=" Slotmachine" />
       <Label fx:id="rouletteSelection" layoutX="88.0" layoutY="215.0" prefHeight="60.0" prefWidth="425.0" style="-fx-background-color: grey;" text=" Roulette" />
       <Label fx:id="blackJackSelection" layoutX="88.0" layoutY="292.0" prefHeight="60.0" prefWidth="425.0" style="-fx-background-color: grey;" text=" Black Jack" />
       <ImageView fitHeight="50.0" fitWidth="38.0" layoutX="460.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true">

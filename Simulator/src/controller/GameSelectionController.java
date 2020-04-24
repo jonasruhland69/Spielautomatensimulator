@@ -46,6 +46,11 @@ public class GameSelectionController {
             mainApp.loadMainMenu();
     }
 
+    @FXML
+    void openSlotmaschine(MouseEvent event) {
+            mainApp.loadSlotmaschine();
+    }
+
     public void setMainApp(MainApp mainApp) {
         this.mainApp = mainApp;
     }

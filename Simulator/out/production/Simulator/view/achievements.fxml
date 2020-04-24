@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AchievementController">
+   <children>
+      <AnchorPane fx:id="achievementanchor" prefHeight="406.0" prefWidth="600.0">
+         <children>
+            <Label fx:id="achieventLabel" layoutX="158.0" layoutY="28.0" text="Achievements">
+               <font>
+                  <Font size="46.0" />
+               </font>
+            </Label>
+            <Label fx:id="backLabel" layoutX="31.0" layoutY="28.0" onMouseClicked="#backToMainMenu" prefHeight="45.0" prefWidth="63.0" text="&lt;Back">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
