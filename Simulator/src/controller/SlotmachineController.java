@@ -6,14 +6,14 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import model.MainApp;
 
-public class SlotmaschinController {
+public class SlotmachineController {
     private MainApp mainApp;
 
     @FXML
     private AnchorPane anchor;
 
     @FXML
-    private Label slotmaschineLabel;
+    private Label slotmachineLabel;
 
     @FXML
     private Label backToGameSelectionLabel;

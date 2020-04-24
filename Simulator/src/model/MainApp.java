@@ -3,7 +3,7 @@ package model;
 import controller.AchievementController;
 import controller.GameSelectionController;
 import controller.MainMenuController;
-import controller.SlotmaschinController;
+import controller.SlotmachineController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -20,7 +20,7 @@ public class MainApp extends Application {
         MainMenuController mainMenuController = new MainMenuController();
         GameSelectionController gameSelectionController = new GameSelectionController();
         AchievementController achievementController= new AchievementController();
-        SlotmaschinController slotmaschinController= new SlotmaschinController();
+        SlotmachineController slotmashineController = new SlotmachineController();
 
         @Override
         public void start(Stage primaryStage) throws Exception{
@@ -70,17 +70,18 @@ public class MainApp extends Application {
             Parent root = loader.load();
             stage.setTitle("Spielautomatensimulator (Slotmaschine)");
             stage.setScene(new Scene(root));
-            slotmaschinController = loader.getController();
-            slotmaschinController.setMainApp(this);
+            slotmashineController = loader.getController();
+            slotmashineController.setMainApp(this);
             stage.show();
 
         }catch (IOException e) {
-            showLoadingError("Slotmaschine");
+            showLoadingError("Slot machine");
         }
     }
 
         public void loadMainMenu() {
             try {
+            stage.sizeToScene();
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("../view/mainMenu.fxml"));
             Parent root = null;
