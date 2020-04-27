@@ -16,12 +16,16 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import model.Player;
 
 public class MainMenuController {
     private MainApp mainApp;
 
     @FXML
     private Label coinsLabel;
+
+    @FXML
+    private Button loadButton;
 
     @FXML
     private Button saveButton;
@@ -55,7 +59,7 @@ public class MainMenuController {
 
     @FXML
     void clickOnSaveButton(ActionEvent event) {
-
+        mainApp.save();
     }
 
     @FXML
@@ -73,6 +77,13 @@ public class MainMenuController {
         mainApp.loadGameSelection();
 
     }
+
+    @FXML
+    void clickOnLoadButton(ActionEvent event) {
+        mainApp.setPlayer(mainApp.loadGameReturn());
+        mainApp.setCoins();
+    }
+
 
     public void setMainApp(MainApp mainApp) {
         this.mainApp = mainApp;

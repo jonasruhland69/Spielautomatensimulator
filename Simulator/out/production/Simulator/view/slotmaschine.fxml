@@ -4,22 +4,21 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SlotmaschinController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SlotmachineController">
    <children>
-      <AnchorPane fx:id="anchor" prefHeight="400.0" prefWidth="606.0">
+      <AnchorPane prefHeight="531.0" prefWidth="801.0">
          <children>
-            <Label fx:id="slotmaschineLabel" layoutX="198.0" layoutY="32.0" prefHeight="63.0" prefWidth="211.0" text="Slotmaschine">
+            <Label layoutX="273.0" layoutY="22.0" prefHeight="111.0" prefWidth="255.0" text="Slotmachine" textAlignment="CENTER">
                <font>
-                  <Font size="34.0" />
-               </font>
-            </Label>
-            <Label fx:id="backToGameSelectionLabel" layoutX="46.0" layoutY="32.0" onMouseClicked="#backtoGameSelection" text="&lt;Back">
-               <font>
-                  <Font size="17.0" />
+                  <Font size="46.0" />
                </font>
             </Label>
          </children>
       </AnchorPane>
+      <Label fx:id="backToMainMenu" layoutX="31.0" layoutY="55.0" onMouseClicked="#backtoGameSelection" prefHeight="51.0" prefWidth="122.0" text="&lt;Back">
+         <font>
+            <Font size="35.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

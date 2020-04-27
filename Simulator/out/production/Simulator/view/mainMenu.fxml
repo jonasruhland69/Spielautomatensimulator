@@ -7,47 +7,67 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainMenuController">
+<AnchorPane prefHeight="531.0" prefWidth="801.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainMenuController">
    <children>
-      <Label layoutX="73.0" layoutY="30.0" prefHeight="58.0" prefWidth="456.0" text="Spielautomatensimulator">
+      <Label layoutX="168.0" layoutY="29.0" prefHeight="58.0" prefWidth="456.0" text="Spielautomatensimulator">
          <font>
             <Font size="40.0" />
          </font>
       </Label>
-      <Label fx:id="coinsLabel" layoutX="515.0" layoutY="360.0" text="Coins" />
-      <Button fx:id="saveButton" layoutX="17.0" layoutY="365.0" mnemonicParsing="false" onAction="#clickOnSaveButton" prefHeight="25.0" prefWidth="56.0" text="Save" />
-      <ImageView fx:id="coinPicture" fitHeight="33.0" fitWidth="85.0" layoutX="475.0" layoutY="352.0" pickOnBounds="true" preserveRatio="true">
+      <Label fx:id="coinsLabel" layoutX="712.0" layoutY="477.0" text="Coins">
+         <font>
+            <Font size="20.0" />
+         </font></Label>
+      <Button fx:id="saveButton" layoutX="14.0" layoutY="425.0" mnemonicParsing="false" onAction="#clickOnSaveButton" prefHeight="37.0" prefWidth="66.0" text="Save">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+      <ImageView fx:id="coinPicture" fitHeight="58.0" fitWidth="63.0" layoutX="644.0" layoutY="463.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/Coin.png" />
          </image>
       </ImageView>
-      <Label fx:id="spielautomatLabel" layoutX="141.0" layoutY="113.0" onMouseClicked="#openGameSelection" prefHeight="51.0" prefWidth="319.0" style="-fx-background-color: #ffcc33;" text="                               Spielautomat wählen" />
-      <Label fx:id="achievementLabel" layoutX="141.0" layoutY="186.0" onMouseClicked="#openAchievements" prefHeight="51.0" prefWidth="319.0" style="-fx-background-color: #ffcc33;" text="                                     Achievements" />
-      <ImageView fx:id="raster1Image" fitHeight="33.0" fitWidth="33.0" layoutX="152.0" layoutY="123.0" pickOnBounds="true" preserveRatio="true">
+      <Label fx:id="gameMachineLabel" alignment="CENTER" layoutX="166.0" layoutY="130.0" onMouseClicked="#openGameSelection" prefHeight="79.0" prefWidth="477.0" style="-fx-background-color: #ffcc33;" text="Game Selection" textAlignment="CENTER">
+         <font>
+            <Font size="22.0" />
+         </font></Label>
+      <Label fx:id="achievementLabel" alignment="CENTER" layoutX="166.0" layoutY="246.0" onMouseClicked="#openAchievements" prefHeight="79.0" prefWidth="477.0" style="-fx-background-color: #ffcc33;" text="Achievements">
+         <font>
+            <Font size="22.0" />
+         </font></Label>
+      <ImageView fx:id="raster1Image" fitHeight="63.0" fitWidth="66.0" layoutX="174.0" layoutY="139.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/reaster%20logo.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="spielautomatImage" fitHeight="33.0" fitWidth="49.0" layoutX="393.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="gameMachineImage" fitHeight="71.0" fitWidth="105.0" layoutX="535.0" layoutY="133.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/spielauswal%20logo.png" />
          </image>
       </ImageView>
-      <Label fx:id="beendenLabel" layoutX="142.0" layoutY="264.0" onMouseClicked="#close" prefHeight="51.0" prefWidth="319.0" style="-fx-background-color: #DF0101;" text="  Spiel beenden" />
-      <ImageView fx:id="raster2Image" fitHeight="33.0" fitWidth="33.0" layoutX="152.0" layoutY="196.0" pickOnBounds="true" preserveRatio="true">
+      <Label fx:id="closeLabel" layoutX="167.0" layoutY="365.0" onMouseClicked="#close" prefHeight="79.0" prefWidth="477.0" style="-fx-background-color: #DF0101;" text="  Spiel beenden">
+         <font>
+            <Font size="22.0" />
+         </font></Label>
+      <ImageView fx:id="raster2Image" fitHeight="63.0" fitWidth="75.0" layoutX="174.0" layoutY="255.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/reaster%20logo.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="achievementImage" fitHeight="40.0" fitWidth="46.0" layoutX="396.0" layoutY="192.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="achievementImage" fitHeight="64.0" fitWidth="63.0" layoutX="553.0" layoutY="254.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/Achievements.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="beendenImage" fitHeight="40.0" fitWidth="33.0" layoutX="400.0" layoutY="271.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="closeImage" fitHeight="71.0" fitWidth="100.0" layoutX="553.0" layoutY="369.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/beenden%20logo.png" />
          </image>
       </ImageView>
+      <Button fx:id="loadButton" layoutX="14.0" layoutY="477.0" mnemonicParsing="false" onAction="#clickOnLoadButton" prefHeight="37.0" prefWidth="66.0" text="Load">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

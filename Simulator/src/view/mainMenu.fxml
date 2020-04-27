@@ -18,7 +18,7 @@
          <font>
             <Font size="20.0" />
          </font></Label>
-      <Button fx:id="saveButton" layoutX="14.0" layoutY="476.0" mnemonicParsing="false" onAction="#clickOnSaveButton" prefHeight="37.0" prefWidth="66.0" text="Save">
+      <Button fx:id="saveButton" layoutX="14.0" layoutY="425.0" mnemonicParsing="false" onAction="#clickOnSaveButton" prefHeight="37.0" prefWidth="66.0" text="Save">
          <font>
             <Font size="18.0" />
          </font></Button>
@@ -64,5 +64,10 @@
             <Image url="@Images/beenden%20logo.png" />
          </image>
       </ImageView>
+      <Button fx:id="loadButton" layoutX="14.0" layoutY="477.0" mnemonicParsing="false" onAction="#clickOnLoadButton" prefHeight="37.0" prefWidth="66.0" text="Load">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

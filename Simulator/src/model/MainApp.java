@@ -1,30 +1,42 @@
 package model;
 
-import controller.AchievementController;
-import controller.GameSelectionController;
-import controller.MainMenuController;
-import controller.SlotmachineController;
+import controller.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
-import java.io.IOException;
+import java.io.*;
 
 
 public class MainApp extends Application {
         Stage stage = new Stage();
-        Player player = new Player(100);
+        Player player;
         MainMenuController mainMenuController = new MainMenuController();
         GameSelectionController gameSelectionController = new GameSelectionController();
         AchievementController achievementController= new AchievementController();
         SlotmachineController slotmashineController = new SlotmachineController();
+        StartScreenController startScreenController = new StartScreenController();
+
 
         @Override
         public void start(Stage primaryStage) throws Exception{
-            loadMainMenu();
+            try {
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(getClass().getResource("../view/startScreen.fxml"));
+                Parent root = loader.load();
+                stage.setTitle("Spielautomatensimulator");
+                stage.setScene(new Scene(root));
+                startScreenController = loader.getController();
+                startScreenController.setMainApp(this);
+                stage.show();
+            } catch (IOException e) {
+                showLoadingError("Start");
+            }
+
         }
 
         public static void main(String[] args) {
@@ -105,4 +117,46 @@ public class MainApp extends Application {
             alert.setContentText("Could not load " + view +"!");
             alert.showAndWait();
         }
+
+    public void loadGame() {
+        try(ObjectInputStream ois = new ObjectInputStream(new BufferedInputStream(new FileInputStream("abc")))){
+            player = (Player) ois.readObject();
+            loadMainMenu();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
+
+    public Player loadGameReturn() {
+        try (ObjectInputStream ois = new ObjectInputStream(new BufferedInputStream(new FileInputStream("abc")))) {
+            return (Player) ois.readObject();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public void setPlayer(Player player){
+            this.player= player;
+    }
+
+    public void setCoins(){
+        mainMenuController.setCoins(player.getCoins());
+    }
+
+    public void save() {
+            try (ObjectOutputStream dos = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(player.getName())))){
+                dos.writeObject(player);
+                dos.flush();
+        } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+    }
+}
