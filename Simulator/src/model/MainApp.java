@@ -2,14 +2,20 @@ package model;
 
 import controller.*;
 import javafx.application.Application;
+import javafx.event.Event;
+import javafx.event.EventHandler;
+import javafx.event.EventType;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.TreeItem;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.*;
+import java.util.ArrayList;
 
 
 public class MainApp extends Application {
@@ -20,10 +26,19 @@ public class MainApp extends Application {
         AchievementController achievementController= new AchievementController();
         SlotmachineController slotmashineController = new SlotmachineController();
         StartScreenController startScreenController = new StartScreenController();
+        AccountViewController accountViewController = new AccountViewController();
 
 
-        @Override
+    @Override
         public void start(Stage primaryStage) throws Exception{
+            loadStartScreen();
+        }
+
+        public static void main(String[] args) {
+            launch(args);
+        }
+
+        public void loadStartScreen(){
             try {
                 FXMLLoader loader = new FXMLLoader();
                 loader.setLocation(getClass().getResource("../view/startScreen.fxml"));
@@ -33,14 +48,9 @@ public class MainApp extends Application {
                 startScreenController = loader.getController();
                 startScreenController.setMainApp(this);
                 stage.show();
-            } catch (IOException e) {
-                showLoadingError("Start");
+            }catch (IOException e){
+                showLoadingError("Start Screen");
             }
-
-        }
-
-        public static void main(String[] args) {
-            launch(args);
         }
 
         public void loadGameSelection(){
@@ -103,12 +113,38 @@ public class MainApp extends Application {
             mainMenuController = loader.getController();
             mainMenuController.setMainApp(this);
             mainMenuController.setCoins(player.getCoins());
+            mainMenuController.setPlayerLabel(player.getName());
             stage.show();
 
             } catch (IOException e) {
                 showLoadingError("Main Menu");
             }
         }
+
+    public void loadAccountView(){
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("../view/accountView.fxml"));
+            Parent root = loader.load();
+            stage.setTitle("Spielautomatensimulator (Accounts)");
+            stage.setScene(new Scene(root));
+            accountViewController = loader.getController();
+            accountViewController.setMainApp(this);
+            File file = new File("./");
+            File[] files = file.listFiles();
+            for (int i = 0; i < files.length; i++) {
+                if (files[i].getName().endsWith(".bin")){
+                    TreeItem treeItem = new TreeItem(files[i].getName());
+                    accountViewController.addAccount(treeItem);
+                }
+            }
+            accountViewController.initializeTreeView();
+            stage.show();
+
+        }catch (IOException e) {
+            showLoadingError("Account View");
+        }
+    }
 
         public void showLoadingError(String view){
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -118,8 +154,8 @@ public class MainApp extends Application {
             alert.showAndWait();
         }
 
-    public void loadGame() {
-        try(ObjectInputStream ois = new ObjectInputStream(new BufferedInputStream(new FileInputStream("abc")))){
+    public void loadGame(String path) {
+        try(ObjectInputStream ois = new ObjectInputStream(new BufferedInputStream(new FileInputStream(path)))){
             player = (Player) ois.readObject();
             loadMainMenu();
         } catch (IOException e) {
@@ -129,8 +165,8 @@ public class MainApp extends Application {
         }
     }
 
-    public Player loadGameReturn() {
-        try (ObjectInputStream ois = new ObjectInputStream(new BufferedInputStream(new FileInputStream("abc")))) {
+    public Player loadGameReturn(String path) {
+        try (ObjectInputStream ois = new ObjectInputStream(new BufferedInputStream(new FileInputStream(path)))) {
             return (Player) ois.readObject();
         } catch (IOException e) {
             e.printStackTrace();
@@ -149,7 +185,7 @@ public class MainApp extends Application {
     }
 
     public void save() {
-            try (ObjectOutputStream dos = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(player.getName())))){
+            try (ObjectOutputStream dos = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(player.getName() + ".bin")))){
                 dos.writeObject(player);
                 dos.flush();
         } catch (FileNotFoundException e) {

@@ -58,6 +58,10 @@ public class MainMenuController {
     private ImageView beendenImage;
 
     @FXML
+    private Label playerLabel;
+
+
+    @FXML
     void clickOnSaveButton(ActionEvent event) {
         mainApp.save();
     }
@@ -80,11 +84,12 @@ public class MainMenuController {
 
     @FXML
     void clickOnLoadButton(ActionEvent event) {
-        mainApp.setPlayer(mainApp.loadGameReturn());
-        mainApp.setCoins();
+        mainApp.loadAccountView();
     }
 
-
+    public void setPlayerLabel(String name){
+        playerLabel.setText(name);
+    }
     public void setMainApp(MainApp mainApp) {
         this.mainApp = mainApp;
     }

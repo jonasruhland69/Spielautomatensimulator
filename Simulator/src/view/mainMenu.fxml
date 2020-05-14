@@ -69,5 +69,15 @@
             <Font size="18.0" />
          </font>
       </Button>
+      <Label layoutX="321.0" layoutY="482.0" prefHeight="30.0" prefWidth="58.0" text="Player:">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="playerLabel" layoutX="383.0" layoutY="487.0" prefHeight="21.0" prefWidth="172.0" text="Player">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

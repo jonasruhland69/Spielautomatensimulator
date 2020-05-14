@@ -21,7 +21,7 @@ public class StartScreenController {
 
     @FXML
     void clickOnLoadButton(ActionEvent event) {
-        mainApp.loadGame();
+        mainApp.loadAccountView();
     }
 
     @FXML
