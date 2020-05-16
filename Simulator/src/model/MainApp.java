@@ -2,19 +2,15 @@ package model;
 
 import controller.*;
 import javafx.application.Application;
-import javafx.event.Event;
-import javafx.event.EventHandler;
-import javafx.event.EventType;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TreeItem;
-import javafx.scene.input.MouseEvent;
-import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.*;
+import java.net.MalformedURLException;
 import java.util.ArrayList;
 
 
@@ -27,6 +23,9 @@ public class MainApp extends Application {
         SlotmachineController slotmashineController = new SlotmachineController();
         StartScreenController startScreenController = new StartScreenController();
         AccountViewController accountViewController = new AccountViewController();
+
+    public MainApp() throws MalformedURLException {
+    }
 
 
     @Override
@@ -94,6 +93,7 @@ public class MainApp extends Application {
             stage.setScene(new Scene(root));
             slotmashineController = loader.getController();
             slotmashineController.setMainApp(this);
+            slotmashineController.updateBank();
             stage.show();
 
         }catch (IOException e) {
@@ -180,8 +180,8 @@ public class MainApp extends Application {
             this.player= player;
     }
 
-    public void setCoins(){
-        mainMenuController.setCoins(player.getCoins());
+    public Player getPlayer() {
+        return player;
     }
 
     public void save() {

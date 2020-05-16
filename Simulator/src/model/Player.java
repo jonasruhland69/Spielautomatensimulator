@@ -30,4 +30,12 @@ public class Player implements Serializable {
     public HashSet<Game> getOwnedGames() {
         return ownedGames;
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setCoins(int coins) {
+        this.coins = coins;
+    }
 }
