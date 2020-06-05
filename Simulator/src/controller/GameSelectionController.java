@@ -1,10 +1,13 @@
 package controller;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import model.BlackJack;
 import model.MainApp;
+import model.Roulette;
 
 import java.io.IOException;
 
@@ -49,6 +52,15 @@ public class GameSelectionController {
     @FXML
     void openSlotmaschine(MouseEvent event) {
             mainApp.loadSlotmaschine();
+    }
+
+    @FXML
+    void openBlackJack(MouseEvent event) {
+
+    }
+
+    @FXML
+    void openRoulette(MouseEvent event) {
     }
 
     public void setMainApp(MainApp mainApp) {

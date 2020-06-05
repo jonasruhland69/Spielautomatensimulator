@@ -72,6 +72,7 @@ public class SlotmachineController {
             slot1.setImage(slotPictures[getRandomIntInRange(0,slotPictures.length-1)]);
             slot2.setImage(slotPictures[getRandomIntInRange(0,slotPictures.length-1)]);
             slot3.setImage(slotPictures[getRandomIntInRange(0,slotPictures.length-1)]);
+
             if (slot1.getImage().equals(slot2.getImage()) && slot3.getImage().equals(slot2.getImage())){
                 if (slot1.getImage().equals(slotPictures[0])){
                     bilanz=((Integer.parseInt(bet.getText())*5)-Integer.parseInt(bet.getText()));

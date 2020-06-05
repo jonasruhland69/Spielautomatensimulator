@@ -22,11 +22,11 @@
          <font>
             <Font size="22.0" />
          </font></Label>
-      <Label fx:id="rouletteSelection" layoutX="145.0" layoutY="254.0" prefHeight="71.0" prefWidth="512.0" style="-fx-background-color: grey;" text=" Roulette">
+      <Label fx:id="rouletteSelection" layoutX="145.0" layoutY="254.0" onMouseClicked="#openRoulette" prefHeight="71.0" prefWidth="512.0" style="-fx-background-color: grey;" text=" Roulette">
          <font>
             <Font size="22.0" />
          </font></Label>
-      <Label fx:id="blackJackSelection" layoutX="145.0" layoutY="366.0" prefHeight="71.0" prefWidth="512.0" style="-fx-background-color: grey;" text=" Black Jack">
+      <Label fx:id="blackJackSelection" layoutX="145.0" layoutY="366.0" onMouseClicked="#openBlackJack" prefHeight="71.0" prefWidth="512.0" style="-fx-background-color: grey;" text=" Black Jack">
          <font>
             <Font size="22.0" />
          </font></Label>

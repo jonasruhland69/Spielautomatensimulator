@@ -48,7 +48,7 @@ public class MainApp extends Application {
                 startScreenController.setMainApp(this);
                 stage.show();
             }catch (IOException e){
-                showLoadingError("Start Screen");
+                showLoadingError("startScreen.fxml");
             }
         }
 
@@ -84,6 +84,7 @@ public class MainApp extends Application {
             showLoadingError("Achievements");
         }
     }
+
     public void loadSlotmaschine(){
         try {
             FXMLLoader loader = new FXMLLoader();
@@ -100,6 +101,40 @@ public class MainApp extends Application {
             showLoadingError("Slot machine");
         }
     }
+
+    public void loadRoulette() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("../view/roulette.fxml"));
+            Parent root = loader.load();
+            stage.setTitle("Spielautomatensimulator (Roulette)");
+            stage.setScene(new Scene(root));
+            slotmashineController = loader.getController();
+            slotmashineController.setMainApp(this);
+            slotmashineController.updateBank();
+            stage.show();
+
+        } catch (IOException e) {
+            showLoadingError("Roulette");
+        }
+    }
+
+        public void loadBlackJack(){
+            try {
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(getClass().getResource("../view/blackJack.fxml"));
+                Parent root = loader.load();
+                stage.setTitle("Spielautomatensimulator (Black Jack)");
+                stage.setScene(new Scene(root));
+                slotmashineController = loader.getController();
+                slotmashineController.setMainApp(this);
+                slotmashineController.updateBank();
+                stage.show();
+
+            }catch (IOException e) {
+                showLoadingError("Black Jack");
+            }
+        }
 
         public void loadMainMenu() {
             try {
@@ -163,17 +198,6 @@ public class MainApp extends Application {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-    }
-
-    public Player loadGameReturn(String path) {
-        try (ObjectInputStream ois = new ObjectInputStream(new BufferedInputStream(new FileInputStream(path)))) {
-            return (Player) ois.readObject();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        return null;
     }
 
     public void setPlayer(Player player){
