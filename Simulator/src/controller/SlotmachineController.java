@@ -17,9 +17,10 @@ import java.util.regex.Pattern;
 
 public class SlotmachineController {
     private MainApp mainApp;
-    private String url = "E:/Schule/SEW/Spielautomatensimulator/Simulator/src/view/Images/";
+    private String url = System.getProperty("user.dir")+File.separator+"src"+File.separator+"view"+File.separator+
+        "Images" + File.separator;
     private Image[] slotPictures = {
-            new Image(new File(url + "$Slotmachine.png").toURI().toURL().toString()),
+            new Image(new File(url+ "$Slotmachine.png").toURI().toURL().toString()),
             new Image(new File(url + "7SlotMachine.png").toURI().toURL().toString()),
             new Image(new File(url + "StarSlotmachine.png").toURI().toURL().toString())
 };
@@ -60,7 +61,7 @@ public class SlotmachineController {
 
     @FXML
     void backtoGameSelection(MouseEvent event) {
-
+        mainApp.loadGameSelection();
     }
 
     @FXML
