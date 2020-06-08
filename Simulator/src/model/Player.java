@@ -1,17 +1,20 @@
 package model;
 
 import java.io.Serializable;
+import java.util.HashMap;
 import java.util.HashSet;
 
 public class Player implements Serializable {
     private static final long serialVersionUID = -5595229778182018687L;
     private String name;
     private int coins;
-    private HashSet<Game> ownedGames = new HashSet<>();
+    private HashMap<String,Boolean> ownedGames = new HashMap<>();
 
     public Player(int coins, String name) {
         this.coins = coins;
-        ownedGames.add(new SlotMachine());
+        ownedGames.put("Slotmachine",true);
+        ownedGames.put("Black Jack",false);
+        ownedGames.put("Roulette",false);
         this.name = name;
     }
 
@@ -27,7 +30,7 @@ public class Player implements Serializable {
         return name;
     }
 
-    public HashSet<Game> getOwnedGames() {
+    public HashMap<String,Boolean> getOwnedGames() {
         return ownedGames;
     }
 

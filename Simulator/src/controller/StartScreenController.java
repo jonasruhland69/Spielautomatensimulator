@@ -27,7 +27,7 @@ public class StartScreenController {
     @FXML
     void clickOnCreateButton(ActionEvent event) {
         if (!nameTextField.getText().isEmpty()) {
-            mainApp.setPlayer(new Player(50, nameTextField.getText()));
+            mainApp.setPlayer(new Player(100000, nameTextField.getText()));
             mainApp.loadMainMenu();
         }
     }

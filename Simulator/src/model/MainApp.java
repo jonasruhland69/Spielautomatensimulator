@@ -15,6 +15,8 @@ import java.util.ArrayList;
 
 
 public class MainApp extends Application {
+        final int BLACKJACKCOSTS = 1000;
+        final int ROULETTECOSTS = 1000;
         Stage stage = new Stage();
         Player player;
         MainMenuController mainMenuController = new MainMenuController();
@@ -23,6 +25,8 @@ public class MainApp extends Application {
         SlotmachineController slotmashineController = new SlotmachineController();
         StartScreenController startScreenController = new StartScreenController();
         AccountViewController accountViewController = new AccountViewController();
+        BlackJackController blackJackController = new BlackJackController();
+        RouletteController rouletteController = new RouletteController();
 
     public MainApp() throws MalformedURLException {
     }
@@ -62,6 +66,7 @@ public class MainApp extends Application {
                 gameSelectionController = loader.getController();
                 gameSelectionController.setMainApp(this);
                 gameSelectionController.setCoins(player.getCoins());
+                gameSelectionController.updateOwnedGames();
                 stage.show();
 
             }catch (IOException e) {
@@ -109,9 +114,8 @@ public class MainApp extends Application {
             Parent root = loader.load();
             stage.setTitle("Spielautomatensimulator (Roulette)");
             stage.setScene(new Scene(root));
-            slotmashineController = loader.getController();
-            slotmashineController.setMainApp(this);
-            slotmashineController.updateBank();
+            rouletteController = loader.getController();
+            rouletteController.setMainApp(this);
             stage.show();
 
         } catch (IOException e) {
@@ -126,9 +130,8 @@ public class MainApp extends Application {
                 Parent root = loader.load();
                 stage.setTitle("Spielautomatensimulator (Black Jack)");
                 stage.setScene(new Scene(root));
-                slotmashineController = loader.getController();
-                slotmashineController.setMainApp(this);
-                slotmashineController.updateBank();
+                blackJackController = loader.getController();
+                blackJackController.setMainApp(this);
                 stage.show();
 
             }catch (IOException e) {
@@ -200,6 +203,18 @@ public class MainApp extends Application {
         }
     }
 
+    public void save() {
+        try (ObjectOutputStream dos = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(player.getName() + ".bin")))){
+            dos.writeObject(player);
+            dos.flush();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
     public void setPlayer(Player player){
             this.player= player;
     }
@@ -208,15 +223,11 @@ public class MainApp extends Application {
         return player;
     }
 
-    public void save() {
-            try (ObjectOutputStream dos = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(player.getName() + ".bin")))){
-                dos.writeObject(player);
-                dos.flush();
-        } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+    public int getBLACKJACKCOSTS() {
+        return BLACKJACKCOSTS;
+    }
 
+    public int getROULETTECOSTS() {
+        return ROULETTECOSTS;
     }
 }
