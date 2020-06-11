@@ -1,15 +1,72 @@
 package model;
 
-public class BlackJack extends Game implements Playable {
-    private static final long serialVersionUID = -5595229778182018687L;
+import java.io.File;
+import java.net.MalformedURLException;
+import java.util.Random;
+import java.util.regex.Pattern;
 
-    @Override
-    public void draw() {
+public class BlackJack {
+    private MainApp mainApp;
+    private char[] cards = new char[52];
+    private char[] playerCards = new char[5];
+    private char[] opponentCards = new char[5];
+    private String url = System.getProperty("user.dir")+ File.separator+"src"+File.separator+"view"+File.separator+
+            "Images" + File.separator+"BlackJackCard";
 
+
+    public void setUpCards(){
+        char[] cardTypes= {'2','3','4','5','6','7','8','9','1','J','Q','K','A'};
+        for (int i = 0; i < 13; i++) {
+            for (int j = 0; j < 4; j++) {
+                cards[i*4+j]=cardTypes[i];
+            }
+        }
     }
 
-    @Override
-    public void placeBet() {
+    public char getRandomCard(int max, int min){
+        Random r = new Random();
+        int random = r.nextInt((max - min) + 1) +min;
+        while (random==' ')
+            random = r.nextInt((max - min) + 1) +min;
 
+        char card = cards[random];
+        cards[random]=' ';
+        return card;
+    }
+
+    public void play() throws MalformedURLException {
+        if (Pattern.matches("\\d+", mainApp.getBlackJackController().getBet().getText()) && Integer.parseInt(mainApp.getBlackJackController().getBet().getText()) <= mainApp.getPlayer().getCoins()) {
+            mainApp.getBlackJackController().getBet().setStyle("-fx-border-color: green");
+            setUpCards();
+            playerCards[0] = getRandomCard(cards.length-1,0);
+            playerCards[1] = getRandomCard(cards.length-1,0);
+            mainApp.getBlackJackController().updateCards();
+        }else
+            mainApp.getBlackJackController().getBet().setStyle("-fx-border-color: red");
+    }
+
+    public BlackJack(MainApp mainApp) {
+        this.mainApp = mainApp;
+    }
+
+    public char[] getPlayerCards() {
+        return playerCards;
+    }
+
+    public char[] getOpponentCards() {
+        return opponentCards;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void pullCard() {
+        for (int i = 0; i < playerCards.length; i++) {
+            if (playerCards[i]=='\u0000'){
+                playerCards[i] = getRandomCard(cards.length-1,0);
+                i = playerCards.length;
+            }
+        }
     }
 }

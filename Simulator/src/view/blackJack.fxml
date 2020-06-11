@@ -82,7 +82,7 @@
                   <Font size="17.0" />
                </font>
             </Label>
-            <TextField fx:id="einsatzField" layoutX="28.0" layoutY="279.0" prefHeight="34.0" prefWidth="91.0">
+            <TextField fx:id="betField" layoutX="28.0" layoutY="279.0" prefHeight="34.0" prefWidth="91.0">
                <font>
                   <Font size="17.0" />
                </font></TextField>

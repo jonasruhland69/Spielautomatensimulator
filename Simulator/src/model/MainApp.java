@@ -27,6 +27,9 @@ public class MainApp extends Application {
         AccountViewController accountViewController = new AccountViewController();
         BlackJackController blackJackController = new BlackJackController();
         RouletteController rouletteController = new RouletteController();
+        SlotMachine slotMachine = new SlotMachine(this);
+        Roulette roulette = new Roulette();
+        BlackJack blackJack = new BlackJack(this);
 
     public MainApp() throws MalformedURLException {
     }
@@ -132,6 +135,7 @@ public class MainApp extends Application {
                 stage.setScene(new Scene(root));
                 blackJackController = loader.getController();
                 blackJackController.setMainApp(this);
+                blackJackController.updateBank();
                 stage.show();
 
             }catch (IOException e) {
@@ -229,5 +233,29 @@ public class MainApp extends Application {
 
     public int getROULETTECOSTS() {
         return ROULETTECOSTS;
+    }
+
+    public SlotMachine getSlotMachine() {
+        return slotMachine;
+    }
+
+    public Roulette getRoulette() {
+        return roulette;
+    }
+
+    public BlackJack getBlackJack() {
+        return blackJack;
+    }
+
+    public SlotmachineController getSlotmashineController() {
+        return slotmashineController;
+    }
+
+    public BlackJackController getBlackJackController() {
+        return blackJackController;
+    }
+
+    public RouletteController getRouletteController() {
+        return rouletteController;
     }
 }
