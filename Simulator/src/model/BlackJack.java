@@ -41,6 +41,7 @@ public class BlackJack {
             playerCards[0] = getRandomCard(cards.length-1,0);
             playerCards[1] = getRandomCard(cards.length-1,0);
             mainApp.getBlackJackController().updateCards();
+            mainApp.getBlackJackController().updatePlayerCardValue();
         }else
             mainApp.getBlackJackController().getBet().setStyle("-fx-border-color: red");
     }

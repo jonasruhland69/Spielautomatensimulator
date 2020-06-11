@@ -69,6 +69,12 @@ public class BlackJackController {
     @FXML
     private Label backToGameSelection;
 
+    @FXML
+    private Label winLoseLabel;
+
+    @FXML
+    private Label playerCardValue;
+
     public void updateBank(){
         bankField.setText(String.valueOf(mainApp.getPlayer().getCoins()));
     }
@@ -79,15 +85,24 @@ public class BlackJackController {
     }
 
     @FXML
-    void hitButtonPressed(ActionEvent event) {
+    void hitButtonPressed(ActionEvent event) throws MalformedURLException {
         mainApp.getBlackJack().pullCard();
+        updateCards();
+        updatePlayerCardValue();
+        if (Integer.parseInt(playerCardValue.getText())>21){
+            gameLost();
+        }
     }
 
     @FXML
     void playButtonPressed(ActionEvent event) throws MalformedURLException {
+        winLoseLabel.setText("");
         mainApp.getBlackJack().play();
         hitButton.setDisable(false);
         standButton.setDisable(false);
+        playButton.setDisable(true);
+        updatePlayerCardValue();
+        betField.setEditable(false);
     }
 
     @FXML
@@ -109,5 +124,27 @@ public class BlackJackController {
                 playerCardImages[i].setImage(new Image(new File(mainApp.getBlackJack().getUrl()).toURI().toURL().toString()+playerCards[i]+".png"));
             }
         }
+    }
+
+    public void updatePlayerCardValue(){
+        int value = 0;
+        char[] playerCards = mainApp.getBlackJack().getPlayerCards();
+        for (int i = 0; i < playerCards.length; i++) {
+            if (playerCards[i]>49&&playerCards[i]<58){
+                value += Integer.parseInt(String.valueOf(playerCards[i]));
+            } else if (playerCards[i]=='J'||playerCards[i]=='Q'||playerCards[i]=='K'||playerCards[i]=='1')
+                value +=10;
+        }
+        playerCardValue.setText(String.valueOf(value));
+    }
+
+    public void gameLost(){
+        winLoseLabel.setText("Lost!");
+        mainApp.getPlayer().setCoins(mainApp.getPlayer().getCoins()-Integer.parseInt(betField.getText()));
+        playButton.setDisable(false);
+        hitButton.setDisable(true);
+        standButton.setDisable(true);
+        updateBank();
+        betField.setEditable(true);
     }
 }

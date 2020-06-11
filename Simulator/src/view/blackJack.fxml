@@ -91,7 +91,7 @@
                   <Font size="25.0" />
                </font>
             </Button>
-            <Label layoutX="56.0" layoutY="413.0" prefHeight="50.0" prefWidth="69.0" text="0">
+            <Label fx:id="playerCardValue" layoutX="56.0" layoutY="413.0" prefHeight="50.0" prefWidth="69.0" text="0">
                <font>
                   <Font size="40.0" />
                </font>
@@ -106,6 +106,11 @@
                   <Font size="17.0" />
                </font>
             </TextField>
+            <Label fx:id="winLoseLabel" layoutX="318.0" layoutY="296.0" prefHeight="55.0" prefWidth="272.0">
+               <font>
+                  <Font size="44.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
       <Label fx:id="backToGameSelection" layoutX="31.0" layoutY="55.0" onMouseClicked="#backtoGameSelectionClicked" prefHeight="51.0" prefWidth="122.0" text="&lt;Back">
