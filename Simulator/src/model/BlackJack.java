@@ -1,5 +1,7 @@
 package model;
 
+import controller.BlackJackController;
+
 import java.io.File;
 import java.net.MalformedURLException;
 import java.util.Random;
@@ -35,15 +37,29 @@ public class BlackJack {
     }
 
     public void play() throws MalformedURLException {
-        if (Pattern.matches("\\d+", mainApp.getBlackJackController().getBet().getText()) && Integer.parseInt(mainApp.getBlackJackController().getBet().getText()) <= mainApp.getPlayer().getCoins()) {
-            mainApp.getBlackJackController().getBet().setStyle("-fx-border-color: green");
+
             setUpCards();
+            playerCards= new char[5];
+            opponentCards= new char[5];
             playerCards[0] = getRandomCard(cards.length-1,0);
             playerCards[1] = getRandomCard(cards.length-1,0);
-            mainApp.getBlackJackController().updateCards();
+            mainApp.getBlackJackController().updatePlayerCards();;
             mainApp.getBlackJackController().updatePlayerCardValue();
-        }else
-            mainApp.getBlackJackController().getBet().setStyle("-fx-border-color: red");
+
+    }
+
+    public void opponentTurn() throws MalformedURLException {
+        setUpCards();
+        opponentCards[0] = getRandomCard(cards.length-1,0);
+        opponentCards[1] = getRandomCard(cards.length-1,0);
+        mainApp.getBlackJackController().updateOpponentCards();
+        mainApp.getBlackJackController().updateOpponentCardValue();
+        while (!checkStand()){
+            pullCard(opponentCards);
+            mainApp.getBlackJackController().updateOpponentCards();
+            mainApp.getBlackJackController().updateOpponentCardValue();
+        }
+        mainApp.getBlackJackController().calculateWinner();
     }
 
     public BlackJack(MainApp mainApp) {
@@ -62,12 +78,48 @@ public class BlackJack {
         return url;
     }
 
-    public void pullCard() {
-        for (int i = 0; i < playerCards.length; i++) {
-            if (playerCards[i]=='\u0000'){
-                playerCards[i] = getRandomCard(cards.length-1,0);
-                i = playerCards.length;
+    public void pullCard(char[] cards) {
+        for (int i = 0; i < cards.length; i++) {
+            if (cards[i]=='\u0000'){
+                cards[i] = getRandomCard(this.cards.length-1,0);
+                i = cards.length;
             }
         }
+    }
+
+    public boolean checkStand(){
+        Random r = new Random();
+        int random = r.nextInt((100 - 1) + 1) +1;
+        if (Integer.parseInt(mainApp.getBlackJackController().getOpponentCardValue().getText())>=12) {
+            switch (Integer.parseInt(mainApp.getBlackJackController().getOpponentCardValue().getText())) {
+                case 12:
+                    if (random > 30)
+                        return false;
+                    break;
+                case 13:
+                    if (random > 38)
+                        return false;
+                    break;
+                case 14:
+                    if (random > 55)
+                        return false;
+                    break;
+                case 15:
+                    if (random > 57)
+                        return false;
+                    break;
+                case 16:
+                    if (random > 61)
+                        return false;
+                    break;
+                case 17:
+                    if (random > 68)
+                        return false;
+                    break;
+                default:
+                    return true;
+            }
+        }
+        return false;
     }
 }
