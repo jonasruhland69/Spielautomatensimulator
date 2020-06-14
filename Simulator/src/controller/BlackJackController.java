@@ -44,6 +44,12 @@ public class BlackJackController {
     private ImageView card5;
 
     @FXML
+    private ImageView card6;
+
+    @FXML
+    private ImageView card7;
+
+    @FXML
     private ImageView opponentCard1;
 
     @FXML
@@ -57,6 +63,12 @@ public class BlackJackController {
 
     @FXML
     private ImageView opponentCard5;
+
+    @FXML
+    private ImageView opponentCard6;
+
+    @FXML
+    private ImageView opponentCard7;
 
     @FXML
     private TextField betField;
@@ -123,8 +135,8 @@ public class BlackJackController {
     private void resetCards() throws MalformedURLException {
         String urlBlackJackCardBack = System.getProperty("user.dir")+ File.separator+"src"+File.separator+"view"+File.separator+
                 "Images" + File.separator+"BlackJackCardBack.png";
-        ImageView[] playerCardImages = {card1,card2,card3,card4,card5};
-        ImageView[] opponentCardImages = {opponentCard1,opponentCard2,opponentCard3,opponentCard4,opponentCard5};
+        ImageView[] playerCardImages = {card1,card2,card3,card4,card5,card6,card7};
+        ImageView[] opponentCardImages = {opponentCard1,opponentCard2,opponentCard3,opponentCard4,opponentCard5,opponentCard6,opponentCard7};
         for (int i = 0; i < playerCardImages.length; i++) {
             playerCardImages[i].setImage(new Image(new File(urlBlackJackCardBack).toURI().toURL().toString()));
             opponentCardImages[i].setImage(new Image(new File(urlBlackJackCardBack).toURI().toURL().toString()));
@@ -142,7 +154,7 @@ public class BlackJackController {
 
     public void updatePlayerCards() throws MalformedURLException {
         char[] playerCards = mainApp.getBlackJack().getPlayerCards();
-        ImageView[] playerCardImages = {card1,card2,card3,card4,card5};
+        ImageView[] playerCardImages = {card1,card2,card3,card4,card5,card6,card7};
 
         for (int i = 0; i < playerCardImages.length; i++) {
             if (playerCards[i]!='\u0000'){
@@ -154,7 +166,7 @@ public class BlackJackController {
 
     public void updateOpponentCards() throws MalformedURLException {
         char[] opponentCards = mainApp.getBlackJack().getOpponentCards();
-        ImageView[] opponentCardImages = {opponentCard1,opponentCard2,opponentCard3,opponentCard4,opponentCard5};
+        ImageView[] opponentCardImages = {opponentCard1,opponentCard2,opponentCard3,opponentCard4,opponentCard5,opponentCard6,opponentCard7};
 
         for (int i = 0; i < opponentCardImages.length; i++) {
             if (opponentCards[i]!='\u0000'){

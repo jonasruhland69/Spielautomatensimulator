@@ -10,8 +10,8 @@ import java.util.regex.Pattern;
 public class BlackJack {
     private MainApp mainApp;
     private char[] cards = new char[52];
-    private char[] playerCards = new char[5];
-    private char[] opponentCards = new char[5];
+    private char[] playerCards = new char[7];
+    private char[] opponentCards = new char[7];
     private String url = System.getProperty("user.dir")+ File.separator+"src"+File.separator+"view"+File.separator+
             "Images" + File.separator+"BlackJackCard";
 
@@ -39,8 +39,8 @@ public class BlackJack {
     public void play() throws MalformedURLException {
 
             setUpCards();
-            playerCards= new char[5];
-            opponentCards= new char[5];
+            playerCards= new char[7];
+            opponentCards= new char[7];
             playerCards[0] = getRandomCard(cards.length-1,0);
             playerCards[1] = getRandomCard(cards.length-1,0);
             mainApp.getBlackJackController().updatePlayerCards();;

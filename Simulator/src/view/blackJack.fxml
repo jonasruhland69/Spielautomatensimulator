@@ -10,44 +10,44 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.BlackJackController">
    <children>
-      <AnchorPane layoutX="-7.0" layoutY="-3.0" prefHeight="575.0" prefWidth="823.0">
+      <AnchorPane layoutX="-7.0" layoutY="-45.0" prefHeight="695.0" prefWidth="1078.0">
          <children>
-            <Label layoutX="322.0" layoutY="27.0" prefHeight="111.0" prefWidth="255.0" text="Black Jack" textAlignment="CENTER">
+            <Label layoutX="446.0" layoutY="37.0" prefHeight="111.0" prefWidth="255.0" text="Black Jack" textAlignment="CENTER">
                <font>
                   <Font size="46.0" />
                </font>
             </Label>
-            <Button fx:id="hitButton" disable="true" layoutX="28.0" layoutY="502.0" mnemonicParsing="false" onAction="#hitButtonPressed" prefWidth="83.0" text="HIT!">
+            <Button fx:id="hitButton" disable="true" layoutX="38.0" layoutY="612.0" mnemonicParsing="false" onAction="#hitButtonPressed" prefHeight="51.0" prefWidth="95.0" text="HIT!">
                <font>
-                  <Font size="25.0" />
+                  <Font size="27.0" />
                </font>
             </Button>
-            <Button fx:id="standButton" disable="true" layoutX="671.0" layoutY="502.0" mnemonicParsing="false" onAction="#standButtonPressed" prefHeight="48.0" prefWidth="151.0" text="STAND!">
+            <Button fx:id="standButton" disable="true" layoutX="915.0" layoutY="605.0" mnemonicParsing="false" onAction="#standButtonPressed" prefHeight="48.0" prefWidth="151.0" text="STAND!">
                <font>
-                  <Font size="25.0" />
+                  <Font size="27.0" />
                </font>
             </Button>
-            <ImageView fx:id="card1" fitHeight="161.0" fitWidth="167.0" layoutX="103.0" layoutY="399.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="card1" fitHeight="161.0" fitWidth="167.0" layoutX="132.0" layoutY="499.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Images/BlackJackCardBack.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="card2" fitHeight="161.0" fitWidth="167.0" layoutX="211.0" layoutY="400.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="card2" fitHeight="161.0" fitWidth="167.0" layoutX="240.0" layoutY="500.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Images/BlackJackCardBack.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="card3" fitHeight="161.0" fitWidth="167.0" layoutX="317.0" layoutY="400.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="card3" fitHeight="161.0" fitWidth="167.0" layoutX="346.0" layoutY="500.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Images/BlackJackCardBack.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="card4" fitHeight="161.0" fitWidth="167.0" layoutX="426.0" layoutY="400.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="card4" fitHeight="161.0" fitWidth="167.0" layoutX="455.0" layoutY="500.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Images/BlackJackCardBack.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="card5" fitHeight="161.0" fitWidth="167.0" layoutX="534.0" layoutY="399.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="card5" fitHeight="161.0" fitWidth="167.0" layoutX="563.0" layoutY="499.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Images/BlackJackCardBack.png" />
                </image>
@@ -77,33 +77,33 @@
                   <Image url="@Images/BlackJackCardBack.png" />
                </image>
             </ImageView>
-            <Label layoutX="28.0" layoutY="250.0" text="Einsatz:">
+            <Label layoutX="25.0" layoutY="277.0" text="Einsatz:">
                <font>
-                  <Font size="17.0" />
+                  <Font size="24.0" />
                </font>
             </Label>
-            <TextField fx:id="betField" layoutX="28.0" layoutY="279.0" prefHeight="34.0" prefWidth="91.0">
+            <TextField fx:id="betField" layoutX="27.0" layoutY="323.0" prefHeight="34.0" prefWidth="128.0">
                <font>
-                  <Font size="17.0" />
+                  <Font size="24.0" />
                </font></TextField>
-            <Button fx:id="playButton" layoutX="28.0" layoutY="319.0" mnemonicParsing="false" onAction="#playButtonPressed" prefHeight="48.0" prefWidth="91.0" text="Play!">
+            <Button fx:id="playButton" layoutX="26.0" layoutY="380.0" mnemonicParsing="false" onAction="#playButtonPressed" prefHeight="40.0" prefWidth="128.0" text="Play!">
                <font>
-                  <Font size="25.0" />
+                  <Font size="34.0" />
                </font>
             </Button>
-            <Label fx:id="playerCardValue" layoutX="56.0" layoutY="413.0" prefHeight="50.0" prefWidth="69.0" text="0">
+            <Label fx:id="playerCardValue" layoutX="52.0" layoutY="514.0" prefHeight="50.0" prefWidth="69.0" text="0">
                <font>
-                  <Font size="40.0" />
+                  <Font size="56.0" />
                </font>
             </Label>
             <Label layoutX="28.0" layoutY="170.0" text="Bank">
                <font>
-                  <Font size="17.0" />
+                  <Font size="24.0" />
                </font>
             </Label>
-            <TextField fx:id="bankField" editable="false" layoutX="26.0" layoutY="203.0" prefHeight="25.0" prefWidth="95.0">
+            <TextField fx:id="bankField" editable="false" layoutX="29.0" layoutY="216.0" prefHeight="25.0" prefWidth="95.0">
                <font>
-                  <Font size="17.0" />
+                  <Font size="24.0" />
                </font>
             </TextField>
             <Label fx:id="winLoseLabel" layoutX="318.0" layoutY="296.0" prefHeight="55.0" prefWidth="272.0">
@@ -111,11 +111,31 @@
                   <Font size="44.0" />
                </font>
             </Label>
-            <Label fx:id="opponentCardValue" layoutX="658.0" layoutY="145.0" prefHeight="50.0" prefWidth="69.0" text="0">
+            <Label fx:id="opponentCardValue" layoutX="873.0" layoutY="150.0" prefHeight="50.0" prefWidth="69.0" text="0">
                <font>
-                  <Font size="40.0" />
+                  <Font size="56.0" />
                </font>
             </Label>
+            <ImageView fx:id="card6" fitHeight="161.0" fitWidth="167.0" layoutX="667.0" layoutY="499.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/BlackJackCardBack.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="card7" fitHeight="161.0" fitWidth="167.0" layoutX="773.0" layoutY="502.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/BlackJackCardBack.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="opponentCard6" fitHeight="120.0" fitWidth="124.0" layoutX="638.0" layoutY="123.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/BlackJackCardBack.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="opponentCard7" fitHeight="120.0" fitWidth="124.0" layoutX="729.0" layoutY="123.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/BlackJackCardBack.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
       <Label fx:id="backToGameSelection" layoutX="31.0" layoutY="55.0" onMouseClicked="#backtoGameSelectionClicked" prefHeight="51.0" prefWidth="122.0" text="&lt;Back">
