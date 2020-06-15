@@ -4,12 +4,13 @@ import controller.BlackJackController;
 
 import java.io.File;
 import java.net.MalformedURLException;
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.regex.Pattern;
 
 public class BlackJack {
     private MainApp mainApp;
-    private char[] cards = new char[52];
+    private ArrayList<Character> cards = new ArrayList<>();
     private char[] playerCards = new char[7];
     private char[] opponentCards = new char[7];
     private String url = System.getProperty("user.dir")+ File.separator+"src"+File.separator+"view"+File.separator+
@@ -17,10 +18,11 @@ public class BlackJack {
 
 
     public void setUpCards(){
+        cards.clear();
         char[] cardTypes= {'2','3','4','5','6','7','8','9','1','J','Q','K','A'};
         for (int i = 0; i < 13; i++) {
             for (int j = 0; j < 4; j++) {
-                cards[i*4+j]=cardTypes[i];
+                cards.add(i*4+j,cardTypes[i]);;
             }
         }
     }
@@ -31,8 +33,8 @@ public class BlackJack {
         while (random==' ')
             random = r.nextInt((max - min) + 1) +min;
 
-        char card = cards[random];
-        cards[random]=' ';
+        char card = cards.get(random);
+        cards.remove(random);
         return card;
     }
 
@@ -41,8 +43,8 @@ public class BlackJack {
             setUpCards();
             playerCards= new char[7];
             opponentCards= new char[7];
-            playerCards[0] = getRandomCard(cards.length-1,0);
-            playerCards[1] = getRandomCard(cards.length-1,0);
+            playerCards[0] = getRandomCard(cards.size()-1,0);
+            playerCards[1] = getRandomCard(cards.size()-1,0);
             mainApp.getBlackJackController().updatePlayerCards();;
             mainApp.getBlackJackController().updatePlayerCardValue();
 
@@ -50,8 +52,8 @@ public class BlackJack {
 
     public void opponentTurn() throws MalformedURLException {
         setUpCards();
-        opponentCards[0] = getRandomCard(cards.length-1,0);
-        opponentCards[1] = getRandomCard(cards.length-1,0);
+        opponentCards[0] = getRandomCard(cards.size()-1,0);
+        opponentCards[1] = getRandomCard(cards.size()-1,0);
         mainApp.getBlackJackController().updateOpponentCards();
         mainApp.getBlackJackController().updateOpponentCardValue();
         while (!checkStand()){
@@ -81,7 +83,7 @@ public class BlackJack {
     public void pullCard(char[] cards) {
         for (int i = 0; i < cards.length; i++) {
             if (cards[i]=='\u0000'){
-                cards[i] = getRandomCard(this.cards.length-1,0);
+                cards[i] = getRandomCard(this.cards.size()-1,0);
                 i = cards.length;
             }
         }

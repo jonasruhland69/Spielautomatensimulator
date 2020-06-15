@@ -1,13 +1,34 @@
 package controller;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.Border;
+import javafx.scene.layout.BorderStroke;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
+import javafx.util.Duration;
+import model.MainApp;
+import model.RouletteBet;
+
+import java.util.ArrayList;
+import java.util.Random;
+import java.util.regex.Pattern;
 
 public class RouletteController {
+        private MainApp mainApp;
+        private Label currentField;
+        private ArrayList<Label> fields = new ArrayList<>();
+
+        @FXML
+        private Button spinButton;
+
         @FXML
         private Label backToGameSelection;
 
@@ -163,16 +184,145 @@ public class RouletteController {
 
         @FXML
         void backtoGameSelectionClicked(MouseEvent event) {
-
+                mainApp.loadGameSelection();
         }
 
         @FXML
         void clickOnSetBetButton(ActionEvent event) {
+                if (Pattern.matches("\\d+", betField.getText()) && Integer.parseInt(betField.getText()) <= mainApp.getPlayer().getCoins()&& Integer.parseInt(betField.getText())>=0) {
+                        betField.setStyle("-fx-border-color: green");
+                        int lastBet = 0;
+                        if (mainApp.getRoulette().getRouletteBets().containsKey(currentField.getText()))
+                                lastBet=mainApp.getRoulette().getRouletteBets().get(currentField.getText()).getBet();
+                        if (Integer.parseInt(betField.getText())>0)
+                                mainApp.getRoulette().getRouletteBets().put(currentField.getText(), new RouletteBet(Integer.parseInt(betField.getText())));
+                        else if (Integer.parseInt(betField.getText())==0) {
+                                mainApp.getRoulette().getRouletteBets().remove(currentField.getText());
+                                currentField.setTextFill(Color.web("white"));
+                        }
+                        if (mainApp.getRoulette().getRouletteBets().containsKey(currentField.getText())){
+                                currentField.setTextFill(Color.web("#e3a909"));
+                        }
+                        mainApp.getPlayer().addCoins(lastBet-Integer.parseInt(betField.getText()));
+                        updateBank();
+                        if (!mainApp.getRoulette().getRouletteBets().isEmpty()){
+                                spinButton.setDisable(false);
+                        }else
+                                spinButton.setDisable(true);
+                }
+                else
+                        betField.setStyle("-fx-border-color: red");
+        }
 
+        @FXML
+        void spinButtonClicked() throws InterruptedException {
+                mainApp.getRoulette().spin();
+                updateBank();
         }
 
         @FXML
         void fieldClicked(MouseEvent event) {
+                if (currentField!=null) {
+                        String style = currentField.getStyle();
+                        style=style.replace("-fx-border-color: #e3a909", "-fx-border-color: white");
+                        currentField.setStyle(style);
+                }
+                Label bet = ((Label) event.getSource());
+                circleField(bet);
+                currentField=bet;
+                if (mainApp.getRoulette().getRouletteBets().containsKey(bet.getText())){
+                        betField.setText(String.valueOf(mainApp.getRoulette().getRouletteBets().get(bet.getText()).getBet()));
+                } else
+                        betField.setText("0");
+        }
 
+        public void circleField(Label field){
+                String style = field.getStyle();
+                style=style.replace("white;","#e3a909;");
+                field.setStyle(style);
+        }
+
+        public void setMainApp(MainApp mainApp) {
+                this.mainApp=mainApp;
+        }
+
+        public TextField getBankTextField() {
+                return bankTextField;
+        }
+
+        public void updateBank() {
+                bankTextField.setText(String.valueOf(mainApp.getPlayer().getCoins()));
+        }
+
+        public void initializeFields(){
+                fields.add(field1);
+                fields.add(field2);
+                fields.add(field3);
+                fields.add(field6);
+                fields.add(field9);
+                fields.add(field12);
+                fields.add(field15);
+                fields.add(field18);
+                fields.add(field21);
+                fields.add(field24);
+                fields.add(field27);
+                fields.add(field30);
+                fields.add(field33);
+                fields.add(field36);
+                fields.add(field4);
+                fields.add(field5);
+                fields.add(field7);
+                fields.add(field8);
+                fields.add(field10);
+                fields.add(field11);
+                fields.add(field13);
+                fields.add(field14);
+                fields.add(field16);
+                fields.add(field17);
+                fields.add(field19);
+                fields.add(field20);
+                fields.add(field22);
+                fields.add(field23);
+                fields.add(field25);
+                fields.add(field26);
+                fields.add(field28);
+                fields.add(field29);
+                fields.add(field31);
+                fields.add(field32);
+                fields.add(field34);
+                fields.add(field35);
+        }
+
+        public ArrayList<Label> getFields() {
+                return fields;
+        }
+
+        public void selectionAnimation() throws InterruptedException {
+                Timeline timeline = new Timeline(new KeyFrame(
+                        Duration.seconds(1),
+                        ae->{
+                                String style = currentField.getStyle();
+                                style=style.replace("-fx-border-color: #e3a909", "-fx-border-color: white");
+                                currentField.setStyle(style);
+                                currentField = getRandomField(fields.size()-1,0);
+                                circleField(currentField);
+                        }));
+                timeline.setCycleCount(10);
+                timeline.play();
+        }
+
+
+        public Label getRandomField(int max, int min){
+                ArrayList<Label> fields = mainApp.getRouletteController().getFields();
+                Random r = new Random();
+                return fields.get(r.nextInt((max - min) + 1) +min);
+        }
+
+        public Label getCurrentField() {
+                return currentField;
+        }
+
+        public void setWinLoseLabel(String winLoseLabel) {
+                this.winLoseLabel.setText(winLoseLabel);
         }
 }

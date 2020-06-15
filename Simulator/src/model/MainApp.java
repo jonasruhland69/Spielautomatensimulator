@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 public class MainApp extends Application {
         final int BLACKJACKCOSTS = 1000;
-        final int ROULETTECOSTS = 1000;
+        final int ROULETTECOSTS = 500;
         Stage stage = new Stage();
         Player player;
         MainMenuController mainMenuController = new MainMenuController();
@@ -28,7 +28,7 @@ public class MainApp extends Application {
         BlackJackController blackJackController = new BlackJackController();
         RouletteController rouletteController = new RouletteController();
         SlotMachine slotMachine = new SlotMachine(this);
-        Roulette roulette = new Roulette();
+        Roulette roulette = new Roulette(this);
         BlackJack blackJack = new BlackJack(this);
 
     public MainApp() throws MalformedURLException {
@@ -119,6 +119,9 @@ public class MainApp extends Application {
             stage.setScene(new Scene(root));
             rouletteController = loader.getController();
             rouletteController.setMainApp(this);
+            rouletteController.getBankTextField().setEditable(false);
+            rouletteController.updateBank();
+            rouletteController.initializeFields();
             stage.show();
 
         } catch (IOException e) {

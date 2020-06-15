@@ -101,7 +101,7 @@
                   <Font size="24.0" />
                </font>
             </Label>
-            <TextField fx:id="bankField" editable="false" layoutX="29.0" layoutY="216.0" prefHeight="25.0" prefWidth="95.0">
+            <TextField fx:id="bankField" editable="false" layoutX="29.0" layoutY="216.0" prefHeight="45.0" prefWidth="128.0">
                <font>
                   <Font size="24.0" />
                </font>
