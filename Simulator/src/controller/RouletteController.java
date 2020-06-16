@@ -8,11 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.Border;
-import javafx.scene.layout.BorderStroke;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 import javafx.util.Duration;
 import model.MainApp;
 import model.RouletteBet;
@@ -162,6 +158,9 @@ public class RouletteController {
         private Label fieldRed;
 
         @FXML
+        private Label fieldBlack;
+
+        @FXML
         private Label fieldOdd;
 
         @FXML
@@ -218,10 +217,14 @@ public class RouletteController {
         void spinButtonClicked() throws InterruptedException {
                 mainApp.getRoulette().spin();
                 updateBank();
+                betField.setEditable(false);
+                spinButton.setDisable(true);
         }
 
         @FXML
         void fieldClicked(MouseEvent event) {
+                betField.requestFocus();
+                betField.setEditable(true);
                 if (currentField!=null) {
                         String style = currentField.getStyle();
                         style=style.replace("-fx-border-color: #e3a909", "-fx-border-color: white");
@@ -234,6 +237,7 @@ public class RouletteController {
                         betField.setText(String.valueOf(mainApp.getRoulette().getRouletteBets().get(bet.getText()).getBet()));
                 } else
                         betField.setText("0");
+                betField.selectAll();
         }
 
         public void circleField(Label field){
@@ -293,13 +297,31 @@ public class RouletteController {
                 fields.add(field35);
         }
 
+        public void clearFields(){
+                mainApp.getRoulette().getRouletteBets().clear();
+                for (Label field : fields) {
+                        field.setTextFill(Color.web("white"));
+                }
+                field1to12.setTextFill(Color.web("white"));
+                field1to18.setTextFill(Color.web("white"));
+                fieldOdd.setTextFill(Color.web("white"));
+                fieldEven.setTextFill(Color.web("white"));
+                field13to24.setTextFill(Color.web("white"));
+                field19to36.setTextFill(Color.web("white"));
+                field25to36.setTextFill(Color.web("white"));
+                fieldRed.setTextFill(Color.web("white"));
+                fieldBlack.setTextFill(Color.web("white"));
+                betField.setText("");
+                betField.deselect();
+        }
+
         public ArrayList<Label> getFields() {
                 return fields;
         }
 
         public void selectionAnimation() throws InterruptedException {
                 Timeline timeline = new Timeline(new KeyFrame(
-                        Duration.seconds(1),
+                        Duration.millis(500),
                         ae->{
                                 String style = currentField.getStyle();
                                 style=style.replace("-fx-border-color: #e3a909", "-fx-border-color: white");
@@ -309,6 +331,10 @@ public class RouletteController {
                         }));
                 timeline.setCycleCount(10);
                 timeline.play();
+                timeline.setOnFinished(event -> {
+                        mainApp.getRoulette().calcWinning();
+                        clearFields();
+                });
         }
 
 
@@ -324,5 +350,13 @@ public class RouletteController {
 
         public void setWinLoseLabel(String winLoseLabel) {
                 this.winLoseLabel.setText(winLoseLabel);
+        }
+
+        public TextField getBetField() {
+                return betField;
+        }
+
+        public TextField getLastGame() {
+                return lastGameTextField;
         }
 }

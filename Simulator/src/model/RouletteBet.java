@@ -39,10 +39,10 @@ public class RouletteBet {
                 start=1;
             }
             for (int i = start; i <=36; i++) {
-                fields.add(start++);
+                fields.add(i++);
             }
         } else if (betField.equals("red")|| betField.equals("black")){
-            String color = "red";
+            String color = " #cc0000";
             if (betField.equals("black")){
                 color="black";
             }

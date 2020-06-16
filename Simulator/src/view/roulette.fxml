@@ -6,289 +6,289 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="802.0" prefWidth="1175.0" style="-fx-background-color: #006600;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RouletteController">
+<AnchorPane prefHeight="1080.0" style="-fx-background-color: #006600;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RouletteController">
    <children>
-      <Label fx:id="backToGameSelection" layoutX="31.0" layoutY="55.0" onMouseClicked="#backtoGameSelectionClicked" prefHeight="51.0" prefWidth="122.0" text="&lt;Back">
+      <Label fx:id="backToGameSelection" layoutX="31.0" layoutY="33.0" onMouseClicked="#backtoGameSelectionClicked" prefHeight="75.0" prefWidth="219.0" text="&lt;Back">
          <font>
-            <Font size="35.0" />
+            <Font size="61.0" />
          </font>
       </Label>
-      <Label layoutX="454.0" layoutY="55.0" text="Roulette">
+      <Label layoutX="915.0" layoutY="13.0" text="Roulette">
          <font>
-            <Font size="46.0" />
+            <Font size="76.0" />
          </font>
       </Label>
-      <Label fx:id="field0" alignment="CENTER" layoutX="52.0" layoutY="206.0" onMouseClicked="#fieldClicked" prefHeight="411.0" prefWidth="67.0" style="-fx-border-color: white; -fx-border-width: 4px;" text="0" textFill="WHITE">
+      <Label fx:id="field0" alignment="CENTER" layoutX="52.0" layoutY="206.0" onMouseClicked="#fieldClicked" prefHeight="604.0" prefWidth="67.0" style="-fx-border-color: white; -fx-border-width: 4px;" text="0" textFill="WHITE">
          <font>
-            <Font size="49.0" />
+            <Font size="62.0" />
          </font>
       </Label>
-      <Label fx:id="field1" alignment="CENTER" layoutX="119.0" layoutY="480.0" onMouseClicked="#fieldClicked" prefHeight="137.0" prefWidth="73.0" style="-fx-background-color: #cc0000; -fx-border-color: white; -fx-border-width: 4px;" text="1" textFill="WHITE">
+      <Label fx:id="field1" alignment="CENTER" layoutX="119.0" layoutY="610.0" onMouseClicked="#fieldClicked" prefHeight="200.0" prefWidth="125.0" style="-fx-background-color: #cc0000; -fx-border-color: white; -fx-border-width: 4px;" text="1" textFill="WHITE">
          <font>
-            <Font size="49.0" />
+            <Font size="62.0" />
          </font>
       </Label>
-      <Label fx:id="field2" alignment="CENTER" layoutX="119.0" layoutY="343.0" onMouseClicked="#fieldClicked" prefHeight="137.0" prefWidth="73.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 4px;" text="2" textFill="WHITE">
+      <Label fx:id="field2" alignment="CENTER" layoutX="119.0" layoutY="408.0" onMouseClicked="#fieldClicked" prefHeight="200.0" prefWidth="125.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 4px;" text="2" textFill="WHITE">
          <font>
-            <Font size="49.0" />
+            <Font size="62.0" />
          </font>
       </Label>
-      <Label fx:id="field3" alignment="CENTER" layoutX="119.0" layoutY="206.0" onMouseClicked="#fieldClicked" prefHeight="137.0" prefWidth="73.0" style="-fx-background-color: #cc0000; -fx-border-color: white; -fx-border-width: 4px;" text="3" textFill="WHITE">
+      <Label fx:id="field3" alignment="CENTER" layoutX="119.0" layoutY="206.0" onMouseClicked="#fieldClicked" prefHeight="200.0" prefWidth="125.0" style="-fx-background-color: #cc0000; -fx-border-color: white; -fx-border-width: 4px;" text="3" textFill="WHITE">
          <font>
-            <Font size="49.0" />
+            <Font size="62.0" />
          </font>
       </Label>
-      <Label fx:id="field6" alignment="CENTER" layoutX="192.0" layoutY="206.0" onMouseClicked="#fieldClicked" prefHeight="137.0" prefWidth="73.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 4px;" text="6" textFill="WHITE">
+      <Label fx:id="field6" alignment="CENTER" layoutX="244.0" layoutY="206.0" onMouseClicked="#fieldClicked" prefHeight="200.0" prefWidth="125.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 4px;" text="6" textFill="WHITE">
          <font>
-            <Font size="49.0" />
+            <Font size="62.0" />
          </font>
       </Label>
-      <Label fx:id="field9" alignment="CENTER" layoutX="265.0" layoutY="206.0" onMouseClicked="#fieldClicked" prefHeight="137.0" prefWidth="73.0" style="-fx-background-color: #cc0000; -fx-border-color: white; -fx-border-width: 4px;" text="9" textFill="WHITE">
+      <Label fx:id="field9" alignment="CENTER" layoutX="370.0" layoutY="206.0" onMouseClicked="#fieldClicked" prefHeight="200.0" prefWidth="125.0" style="-fx-background-color: #cc0000; -fx-border-color: white; -fx-border-width: 4px;" text="9" textFill="WHITE">
          <font>
-            <Font size="49.0" />
+            <Font size="62.0" />
          </font>
       </Label>
-      <Label fx:id="field12" alignment="CENTER" layoutX="338.0" layoutY="206.0" onMouseClicked="#fieldClicked" prefHeight="137.0" prefWidth="73.0" style="-fx-background-color: #cc0000; -fx-border-color: white; -fx-border-width: 4px;" text="12" textFill="WHITE">
+      <Label fx:id="field12" alignment="CENTER" layoutX="495.0" layoutY="206.0" onMouseClicked="#fieldClicked" prefHeight="200.0" prefWidth="125.0" style="-fx-background-color: #cc0000; -fx-border-color: white; -fx-border-width: 4px;" text="12" textFill="WHITE">
          <font>
-            <Font size="49.0" />
+            <Font size="62.0" />
          </font>
       </Label>
-      <Label fx:id="field15" alignment="CENTER" layoutX="411.0" layoutY="206.0" onMouseClicked="#fieldClicked" prefHeight="137.0" prefWidth="73.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 4px;" text="15" textFill="WHITE">
+      <Label fx:id="field15" alignment="CENTER" layoutX="620.0" layoutY="206.0" onMouseClicked="#fieldClicked" prefHeight="200.0" prefWidth="125.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 4px;" text="15" textFill="WHITE">
          <font>
-            <Font size="49.0" />
+            <Font size="62.0" />
          </font>
       </Label>
-      <Label fx:id="field18" alignment="CENTER" layoutX="484.0" layoutY="206.0" onMouseClicked="#fieldClicked" prefHeight="137.0" prefWidth="73.0" style="-fx-background-color: #cc0000; -fx-border-color: white; -fx-border-width: 4px;" text="18" textFill="WHITE">
+      <Label fx:id="field18" alignment="CENTER" layoutX="745.0" layoutY="206.0" onMouseClicked="#fieldClicked" prefHeight="200.0" prefWidth="125.0" style="-fx-background-color: #cc0000; -fx-border-color: white; -fx-border-width: 4px;" text="18" textFill="WHITE">
          <font>
-            <Font size="49.0" />
+            <Font size="62.0" />
          </font>
       </Label>
-      <Label fx:id="field21" alignment="CENTER" layoutX="557.0" layoutY="206.0" onMouseClicked="#fieldClicked" prefHeight="137.0" prefWidth="73.0" style="-fx-background-color: #cc0000; -fx-border-color: white; -fx-border-width: 4px;" text="21" textFill="WHITE">
+      <Label fx:id="field21" alignment="CENTER" layoutX="870.0" layoutY="206.0" onMouseClicked="#fieldClicked" prefHeight="200.0" prefWidth="125.0" style="-fx-background-color: #cc0000; -fx-border-color: white; -fx-border-width: 4px;" text="21" textFill="WHITE">
          <font>
-            <Font size="49.0" />
+            <Font size="62.0" />
          </font>
       </Label>
-      <Label fx:id="field24" alignment="CENTER" layoutX="630.0" layoutY="206.0" onMouseClicked="#fieldClicked" prefHeight="137.0" prefWidth="73.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 4px;" text="24" textFill="WHITE">
+      <Label fx:id="field24" alignment="CENTER" layoutX="994.0" layoutY="206.0" onMouseClicked="#fieldClicked" prefHeight="200.0" prefWidth="125.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 4px;" text="24" textFill="WHITE">
          <font>
-            <Font size="49.0" />
+            <Font size="62.0" />
          </font>
       </Label>
-      <Label fx:id="field27" alignment="CENTER" layoutX="703.0" layoutY="206.0" onMouseClicked="#fieldClicked" prefHeight="137.0" prefWidth="73.0" style="-fx-background-color: #cc0000; -fx-border-color: white; -fx-border-width: 4px;" text="27" textFill="WHITE">
+      <Label fx:id="field27" alignment="CENTER" layoutX="1119.0" layoutY="206.0" onMouseClicked="#fieldClicked" prefHeight="200.0" prefWidth="125.0" style="-fx-background-color: #cc0000; -fx-border-color: white; -fx-border-width: 4px;" text="27" textFill="WHITE">
          <font>
-            <Font size="49.0" />
+            <Font size="62.0" />
          </font>
       </Label>
-      <Label fx:id="field30" alignment="CENTER" layoutX="776.0" layoutY="206.0" onMouseClicked="#fieldClicked" prefHeight="137.0" prefWidth="73.0" style="-fx-background-color: #cc0000; -fx-border-color: white; -fx-border-width: 4px;" text="30" textFill="WHITE">
+      <Label fx:id="field30" alignment="CENTER" layoutX="1245.0" layoutY="206.0" onMouseClicked="#fieldClicked" prefHeight="200.0" prefWidth="125.0" style="-fx-background-color: #cc0000; -fx-border-color: white; -fx-border-width: 4px;" text="30" textFill="WHITE">
          <font>
-            <Font size="49.0" />
+            <Font size="62.0" />
          </font>
       </Label>
-      <Label fx:id="field33" alignment="CENTER" layoutX="849.0" layoutY="206.0" onMouseClicked="#fieldClicked" prefHeight="137.0" prefWidth="73.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 4px;" text="33" textFill="WHITE">
+      <Label fx:id="field33" alignment="CENTER" layoutX="1371.0" layoutY="206.0" onMouseClicked="#fieldClicked" prefHeight="200.0" prefWidth="125.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 4px;" text="33" textFill="WHITE">
          <font>
-            <Font size="49.0" />
+            <Font size="62.0" />
          </font>
       </Label>
-      <Label fx:id="field36" alignment="CENTER" layoutX="922.0" layoutY="206.0" onMouseClicked="#fieldClicked" prefHeight="137.0" prefWidth="73.0" style="-fx-background-color: #cc0000; -fx-border-color: white; -fx-border-width: 4px;" text="36" textFill="WHITE">
+      <Label fx:id="field36" alignment="CENTER" layoutX="1497.0" layoutY="206.0" onMouseClicked="#fieldClicked" prefHeight="200.0" prefWidth="125.0" style="-fx-background-color: #cc0000; -fx-border-color: white; -fx-border-width: 4px;" text="36" textFill="WHITE">
          <font>
-            <Font size="49.0" />
+            <Font size="62.0" />
          </font>
       </Label>
-      <Label fx:id="field4" alignment="CENTER" layoutX="192.0" layoutY="480.0" onMouseClicked="#fieldClicked" prefHeight="137.0" prefWidth="73.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 4px;" text="4" textFill="WHITE">
+      <Label fx:id="field4" alignment="CENTER" layoutX="244.0" layoutY="610.0" onMouseClicked="#fieldClicked" prefHeight="200.0" prefWidth="125.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 4px;" text="4" textFill="WHITE">
          <font>
-            <Font size="49.0" />
+            <Font size="62.0" />
          </font>
       </Label>
-      <Label fx:id="field5" alignment="CENTER" layoutX="192.0" layoutY="343.0" onMouseClicked="#fieldClicked" prefHeight="137.0" prefWidth="73.0" style="-fx-background-color: #cc0000; -fx-border-color: white; -fx-border-width: 4px;" text="5" textFill="WHITE">
+      <Label fx:id="field5" alignment="CENTER" layoutX="244.0" layoutY="408.0" onMouseClicked="#fieldClicked" prefHeight="200.0" prefWidth="125.0" style="-fx-background-color: #cc0000; -fx-border-color: white; -fx-border-width: 4px;" text="5" textFill="WHITE">
          <font>
-            <Font size="49.0" />
+            <Font size="62.0" />
          </font>
       </Label>
-      <Label fx:id="field7" alignment="CENTER" layoutX="265.0" layoutY="480.0" onMouseClicked="#fieldClicked" prefHeight="137.0" prefWidth="73.0" style="-fx-background-color: #cc0000; -fx-border-color: white; -fx-border-width: 4px;" text="7" textFill="WHITE">
+      <Label fx:id="field7" alignment="CENTER" layoutX="370.0" layoutY="610.0" onMouseClicked="#fieldClicked" prefHeight="200.0" prefWidth="125.0" style="-fx-background-color: #cc0000; -fx-border-color: white; -fx-border-width: 4px;" text="7" textFill="WHITE">
          <font>
-            <Font size="49.0" />
+            <Font size="62.0" />
          </font>
       </Label>
-      <Label fx:id="field8" alignment="CENTER" layoutX="265.0" layoutY="343.0" onMouseClicked="#fieldClicked" prefHeight="137.0" prefWidth="73.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 4px;" text="8" textFill="WHITE">
+      <Label fx:id="field8" alignment="CENTER" layoutX="370.0" layoutY="408.0" onMouseClicked="#fieldClicked" prefHeight="200.0" prefWidth="125.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 4px;" text="8" textFill="WHITE">
          <font>
-            <Font size="49.0" />
+            <Font size="62.0" />
          </font>
       </Label>
-      <Label fx:id="field10" alignment="CENTER" layoutX="338.0" layoutY="480.0" onMouseClicked="#fieldClicked" prefHeight="137.0" prefWidth="73.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 4px;" text="10" textFill="WHITE">
+      <Label fx:id="field10" alignment="CENTER" layoutX="495.0" layoutY="610.0" onMouseClicked="#fieldClicked" prefHeight="200.0" prefWidth="125.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 4px;" text="10" textFill="WHITE">
          <font>
-            <Font size="49.0" />
+            <Font size="62.0" />
          </font>
       </Label>
-      <Label fx:id="field11" alignment="CENTER" layoutX="338.0" layoutY="343.0" onMouseClicked="#fieldClicked" prefHeight="137.0" prefWidth="73.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 4px;" text="11" textFill="WHITE">
+      <Label fx:id="field11" alignment="CENTER" layoutX="495.0" layoutY="408.0" onMouseClicked="#fieldClicked" prefHeight="200.0" prefWidth="125.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 4px;" text="11" textFill="WHITE">
          <font>
-            <Font size="49.0" />
+            <Font size="62.0" />
          </font>
       </Label>
-      <Label fx:id="field13" alignment="CENTER" layoutX="411.0" layoutY="480.0" onMouseClicked="#fieldClicked" prefHeight="137.0" prefWidth="73.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 4px;" text="13" textFill="WHITE">
+      <Label fx:id="field13" alignment="CENTER" layoutX="620.0" layoutY="610.0" onMouseClicked="#fieldClicked" prefHeight="200.0" prefWidth="125.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 4px;" text="13" textFill="WHITE">
          <font>
-            <Font size="49.0" />
+            <Font size="62.0" />
          </font>
       </Label>
-      <Label fx:id="field14" alignment="CENTER" layoutX="411.0" layoutY="343.0" onMouseClicked="#fieldClicked" prefHeight="137.0" prefWidth="73.0" style="-fx-background-color: #cc0000; -fx-border-color: white; -fx-border-width: 4px;" text="14" textFill="WHITE">
+      <Label fx:id="field14" alignment="CENTER" layoutX="620.0" layoutY="408.0" onMouseClicked="#fieldClicked" prefHeight="200.0" prefWidth="125.0" style="-fx-background-color: #cc0000; -fx-border-color: white; -fx-border-width: 4px;" text="14" textFill="WHITE">
          <font>
-            <Font size="49.0" />
+            <Font size="62.0" />
          </font>
       </Label>
-      <Label fx:id="field16" alignment="CENTER" layoutX="484.0" layoutY="480.0" onMouseClicked="#fieldClicked" prefHeight="137.0" prefWidth="73.0" style="-fx-background-color: #cc0000; -fx-border-color: white; -fx-border-width: 4px;" text="16" textFill="WHITE">
+      <Label fx:id="field16" alignment="CENTER" layoutX="745.0" layoutY="610.0" onMouseClicked="#fieldClicked" prefHeight="200.0" prefWidth="125.0" style="-fx-background-color: #cc0000; -fx-border-color: white; -fx-border-width: 4px;" text="16" textFill="WHITE">
          <font>
-            <Font size="49.0" />
+            <Font size="62.0" />
          </font>
       </Label>
-      <Label fx:id="field17" alignment="CENTER" layoutX="484.0" layoutY="343.0" onMouseClicked="#fieldClicked" prefHeight="137.0" prefWidth="73.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 4px;" text="17" textFill="WHITE">
+      <Label fx:id="field17" alignment="CENTER" layoutX="745.0" layoutY="408.0" onMouseClicked="#fieldClicked" prefHeight="200.0" prefWidth="125.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 4px;" text="17" textFill="WHITE">
          <font>
-            <Font size="49.0" />
+            <Font size="62.0" />
          </font>
       </Label>
-      <Label fx:id="field19" alignment="CENTER" layoutX="557.0" layoutY="480.0" onMouseClicked="#fieldClicked" prefHeight="137.0" prefWidth="73.0" style="-fx-background-color: #cc0000; -fx-border-color: white; -fx-border-width: 4px;" text="19" textFill="WHITE">
+      <Label fx:id="field19" alignment="CENTER" layoutX="870.0" layoutY="610.0" onMouseClicked="#fieldClicked" prefHeight="200.0" prefWidth="125.0" style="-fx-background-color: #cc0000; -fx-border-color: white; -fx-border-width: 4px;" text="19" textFill="WHITE">
          <font>
-            <Font size="49.0" />
+            <Font size="62.0" />
          </font>
       </Label>
-      <Label fx:id="field20" alignment="CENTER" layoutX="557.0" layoutY="343.0" onMouseClicked="#fieldClicked" prefHeight="137.0" prefWidth="73.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 4px;" text="20" textFill="WHITE">
+      <Label fx:id="field20" alignment="CENTER" layoutX="870.0" layoutY="408.0" onMouseClicked="#fieldClicked" prefHeight="200.0" prefWidth="125.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 4px;" text="20" textFill="WHITE">
          <font>
-            <Font size="49.0" />
+            <Font size="62.0" />
          </font>
       </Label>
-      <Label fx:id="field22" alignment="CENTER" layoutX="630.0" layoutY="480.0" onMouseClicked="#fieldClicked" prefHeight="137.0" prefWidth="73.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 4px;" text="22" textFill="WHITE">
+      <Label fx:id="field22" alignment="CENTER" layoutX="994.0" layoutY="610.0" onMouseClicked="#fieldClicked" prefHeight="200.0" prefWidth="125.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 4px;" text="22" textFill="WHITE">
          <font>
-            <Font size="49.0" />
+            <Font size="62.0" />
          </font>
       </Label>
-      <Label fx:id="field23" alignment="CENTER" layoutX="630.0" layoutY="343.0" onMouseClicked="#fieldClicked" prefHeight="137.0" prefWidth="73.0" style="-fx-background-color: #cc0000; -fx-border-color: white; -fx-border-width: 4px;" text="23" textFill="WHITE">
+      <Label fx:id="field23" alignment="CENTER" layoutX="994.0" layoutY="408.0" onMouseClicked="#fieldClicked" prefHeight="200.0" prefWidth="125.0" style="-fx-background-color: #cc0000; -fx-border-color: white; -fx-border-width: 4px;" text="23" textFill="WHITE">
          <font>
-            <Font size="49.0" />
+            <Font size="62.0" />
          </font>
       </Label>
-      <Label fx:id="field25" alignment="CENTER" layoutX="703.0" layoutY="480.0" onMouseClicked="#fieldClicked" prefHeight="137.0" prefWidth="73.0" style="-fx-background-color: #cc0000; -fx-border-color: white; -fx-border-width: 4px;" text="25" textFill="WHITE">
+      <Label fx:id="field25" alignment="CENTER" layoutX="1119.0" layoutY="610.0" onMouseClicked="#fieldClicked" prefHeight="200.0" prefWidth="125.0" style="-fx-background-color: #cc0000; -fx-border-color: white; -fx-border-width: 4px;" text="25" textFill="WHITE">
          <font>
-            <Font size="49.0" />
+            <Font size="62.0" />
          </font>
       </Label>
-      <Label fx:id="field26" alignment="CENTER" layoutX="703.0" layoutY="343.0" onMouseClicked="#fieldClicked" prefHeight="137.0" prefWidth="73.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 4px;" text="26" textFill="WHITE">
+      <Label fx:id="field26" alignment="CENTER" layoutX="1119.0" layoutY="408.0" onMouseClicked="#fieldClicked" prefHeight="200.0" prefWidth="125.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 4px;" text="26" textFill="WHITE">
          <font>
-            <Font size="49.0" />
+            <Font size="62.0" />
          </font>
       </Label>
-      <Label fx:id="field28" alignment="CENTER" layoutX="776.0" layoutY="480.0" onMouseClicked="#fieldClicked" prefHeight="137.0" prefWidth="73.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 4px;" text="28" textFill="WHITE">
+      <Label fx:id="field28" alignment="CENTER" layoutX="1245.0" layoutY="610.0" onMouseClicked="#fieldClicked" prefHeight="200.0" prefWidth="125.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 4px;" text="28" textFill="WHITE">
          <font>
-            <Font size="49.0" />
+            <Font size="62.0" />
          </font>
       </Label>
-      <Label fx:id="field29" alignment="CENTER" layoutX="776.0" layoutY="343.0" onMouseClicked="#fieldClicked" prefHeight="137.0" prefWidth="73.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 4px;" text="29" textFill="WHITE">
+      <Label fx:id="field29" alignment="CENTER" layoutX="1245.0" layoutY="408.0" onMouseClicked="#fieldClicked" prefHeight="200.0" prefWidth="125.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 4px;" text="29" textFill="WHITE">
          <font>
-            <Font size="49.0" />
+            <Font size="62.0" />
          </font>
       </Label>
-      <Label fx:id="field31" alignment="CENTER" layoutX="849.0" layoutY="480.0" onMouseClicked="#fieldClicked" prefHeight="137.0" prefWidth="73.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 4px;" text="31" textFill="WHITE">
+      <Label fx:id="field31" alignment="CENTER" layoutX="1371.0" layoutY="610.0" onMouseClicked="#fieldClicked" prefHeight="200.0" prefWidth="125.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 4px;" text="31" textFill="WHITE">
          <font>
-            <Font size="49.0" />
+            <Font size="62.0" />
          </font>
       </Label>
-      <Label fx:id="field32" alignment="CENTER" layoutX="849.0" layoutY="343.0" onMouseClicked="#fieldClicked" prefHeight="137.0" prefWidth="73.0" style="-fx-background-color: #cc0000; -fx-border-color: white; -fx-border-width: 4px;" text="32" textFill="WHITE">
+      <Label fx:id="field32" alignment="CENTER" layoutX="1371.0" layoutY="408.0" onMouseClicked="#fieldClicked" prefHeight="200.0" prefWidth="125.0" style="-fx-background-color: #cc0000; -fx-border-color: white; -fx-border-width: 4px;" text="32" textFill="WHITE">
          <font>
-            <Font size="49.0" />
+            <Font size="62.0" />
          </font>
       </Label>
-      <Label fx:id="field34" alignment="CENTER" layoutX="922.0" layoutY="480.0" onMouseClicked="#fieldClicked" prefHeight="137.0" prefWidth="73.0" style="-fx-background-color: #cc0000; -fx-border-color: white; -fx-border-width: 4px;" text="34" textFill="WHITE">
+      <Label fx:id="field34" alignment="CENTER" layoutX="1497.0" layoutY="610.0" onMouseClicked="#fieldClicked" prefHeight="200.0" prefWidth="125.0" style="-fx-background-color: #cc0000; -fx-border-color: white; -fx-border-width: 4px;" text="34" textFill="WHITE">
          <font>
-            <Font size="49.0" />
+            <Font size="62.0" />
          </font>
       </Label>
-      <Label fx:id="field35" alignment="CENTER" layoutX="922.0" layoutY="343.0" onMouseClicked="#fieldClicked" prefHeight="137.0" prefWidth="73.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 4px;" text="35" textFill="WHITE">
+      <Label fx:id="field35" alignment="CENTER" layoutX="1497.0" layoutY="408.0" onMouseClicked="#fieldClicked" prefHeight="200.0" prefWidth="125.0" style="-fx-background-color: black; -fx-border-color: white; -fx-border-width: 4px;" text="35" textFill="WHITE">
          <font>
-            <Font size="49.0" />
+            <Font size="62.0" />
          </font>
       </Label>
-      <Label fx:id="field1to12" alignment="CENTER" layoutX="121.0" layoutY="123.0" onMouseClicked="#fieldClicked" prefHeight="83.0" prefWidth="292.0" style="-fx-border-color: white; -fx-border-width: 4px;" text="1-12" textFill="WHITE">
+      <Label fx:id="field1to12" alignment="CENTER" layoutX="120.0" layoutY="123.0" onMouseClicked="#fieldClicked" prefHeight="83.0" prefWidth="500.0" style="-fx-border-color: white; -fx-border-width: 4px;" text="1-12" textFill="WHITE">
          <font>
-            <Font size="49.0" />
+            <Font size="62.0" />
          </font>
       </Label>
-      <Label fx:id="field13to24" alignment="CENTER" layoutX="411.0" layoutY="123.0" onMouseClicked="#fieldClicked" prefHeight="83.0" prefWidth="292.0" style="-fx-border-color: white; -fx-border-width: 4px;" text="13-24" textFill="WHITE">
+      <Label fx:id="field13to24" alignment="CENTER" layoutX="620.0" layoutY="123.0" onMouseClicked="#fieldClicked" prefHeight="83.0" prefWidth="500.0" style="-fx-border-color: white; -fx-border-width: 4px;" text="13-24" textFill="WHITE">
          <font>
-            <Font size="49.0" />
+            <Font size="62.0" />
          </font>
       </Label>
-      <Label fx:id="field25to36" alignment="CENTER" layoutX="703.0" layoutY="123.0" onMouseClicked="#fieldClicked" prefHeight="83.0" prefWidth="292.0" style="-fx-border-color: white; -fx-border-width: 4px;" text="25-36" textFill="WHITE">
+      <Label fx:id="field25to36" alignment="CENTER" layoutX="1120.0" layoutY="123.0" onMouseClicked="#fieldClicked" prefHeight="83.0" prefWidth="502.0" style="-fx-border-color: white; -fx-border-width: 4px;" text="25-36" textFill="WHITE">
          <font>
-            <Font size="49.0" />
+            <Font size="62.0" />
          </font>
       </Label>
-      <Label fx:id="field1to18" alignment="CENTER" layoutX="119.0" layoutY="617.0" onMouseClicked="#fieldClicked" prefHeight="83.0" prefWidth="146.0" style="-fx-border-color: white; -fx-border-width: 4px;" text="1-18" textFill="WHITE">
+      <Label fx:id="field1to18" alignment="CENTER" layoutX="120.0" layoutY="855.0" onMouseClicked="#fieldClicked" prefHeight="83.0" prefWidth="250.0" style="-fx-border-color: white; -fx-border-width: 4px;" text="1-18" textFill="WHITE">
          <font>
-            <Font size="49.0" />
+            <Font size="62.0" />
          </font>
       </Label>
-      <Label fx:id="fieldEven" alignment="CENTER" layoutX="265.0" layoutY="617.0" onMouseClicked="#fieldClicked" prefHeight="83.0" prefWidth="146.0" style="-fx-border-color: white; -fx-border-width: 4px;" text="Even" textFill="WHITE">
+      <Label fx:id="fieldEven" alignment="CENTER" layoutX="370.0" layoutY="855.0" onMouseClicked="#fieldClicked" prefHeight="83.0" prefWidth="250.0" style="-fx-border-color: white; -fx-border-width: 4px;" text="Even" textFill="WHITE">
          <font>
-            <Font size="49.0" />
+            <Font size="62.0" />
          </font>
       </Label>
-      <Label fx:id="fieldRed" alignment="CENTER" layoutX="411.0" layoutY="617.0" onMouseClicked="#fieldClicked" prefHeight="83.0" prefWidth="146.0" style="-fx-border-color: white; -fx-border-width: 4px; -fx-background-color: #cc0000;" text="red" textFill="WHITE">
+      <Label fx:id="fieldRed" alignment="CENTER" layoutX="620.0" layoutY="854.0" onMouseClicked="#fieldClicked" prefHeight="83.0" prefWidth="250.0" style="-fx-border-color: white; -fx-border-width: 4px; -fx-background-color: #cc0000;" text="red" textFill="WHITE">
          <font>
-            <Font size="49.0" />
+            <Font size="62.0" />
          </font>
       </Label>
-      <Label fx:id="fieldBlack" alignment="CENTER" layoutX="557.0" layoutY="617.0" onMouseClicked="#fieldClicked" prefHeight="83.0" prefWidth="146.0" style="-fx-border-color: white; -fx-border-width: 4px; -fx-background-color: black;" text="black" textFill="WHITE">
+      <Label fx:id="fieldBlack" alignment="CENTER" layoutX="870.0" layoutY="854.0" onMouseClicked="#fieldClicked" prefHeight="83.0" prefWidth="250.0" style="-fx-border-color: white; -fx-border-width: 4px; -fx-background-color: black;" text="black" textFill="WHITE">
          <font>
-            <Font size="49.0" />
+            <Font size="62.0" />
          </font>
       </Label>
-      <Label fx:id="fieldOdd" alignment="CENTER" layoutX="703.0" layoutY="617.0" onMouseClicked="#fieldClicked" prefHeight="83.0" prefWidth="146.0" style="-fx-border-color: white; -fx-border-width: 4px;" text="Odd" textFill="WHITE">
+      <Label fx:id="fieldOdd" alignment="CENTER" layoutX="1120.0" layoutY="854.0" onMouseClicked="#fieldClicked" prefHeight="83.0" prefWidth="250.0" style="-fx-border-color: white; -fx-border-width: 4px;" text="Odd" textFill="WHITE">
          <font>
-            <Font size="49.0" />
+            <Font size="62.0" />
          </font>
       </Label>
-      <Label fx:id="field19to36" alignment="CENTER" layoutX="849.0" layoutY="617.0" onMouseClicked="#fieldClicked" prefHeight="83.0" prefWidth="146.0" style="-fx-border-color: white; -fx-border-width: 4px;" text="19-36" textFill="WHITE">
+      <Label fx:id="field19to36" alignment="CENTER" layoutX="1370.0" layoutY="854.0" onMouseClicked="#fieldClicked" prefHeight="83.0" prefWidth="250.0" style="-fx-border-color: white; -fx-border-width: 4px;" text="19-36" textFill="WHITE">
          <font>
-            <Font size="49.0" />
+            <Font size="62.0" />
          </font>
       </Label>
-      <Label layoutX="1008.0" layoutY="198.0" prefHeight="17.0" prefWidth="96.0" text="Bet">
+      <Label layoutX="1707.0" layoutY="199.0" prefHeight="37.0" prefWidth="176.0" text="Bet">
          <font>
-            <Font size="30.0" />
+            <Font size="54.0" />
          </font>
       </Label>
-      <TextField fx:id="betField" layoutX="1008.0" layoutY="250.0" prefHeight="38.0" prefWidth="146.0" promptText="Choose Field">
+      <TextField fx:id="betField" layoutX="1707.0" layoutY="270.0" prefHeight="50.0" prefWidth="250.0" promptText="Choose Field">
          <font>
-            <Font size="17.0" />
+            <Font size="24.0" />
          </font>
       </TextField>
-      <Button fx:id="setBetButton" layoutX="1008.0" layoutY="302.0" mnemonicParsing="false" onAction="#clickOnSetBetButton" prefHeight="31.0" prefWidth="146.0" text="Set Bet">
+      <Button fx:id="setBetButton" layoutX="1707.0" layoutY="331.0" mnemonicParsing="false" onAction="#clickOnSetBetButton" prefHeight="31.0" prefWidth="250.0" text="Set Bet">
          <font>
-            <Font size="15.0" />
+            <Font size="22.0" />
          </font>
       </Button>
-      <Label layoutX="1008.0" layoutY="357.0" prefHeight="17.0" prefWidth="96.0" text="Bank">
+      <Label layoutX="1707.0" layoutY="392.0" prefHeight="66.0" prefWidth="175.0" text="Bank">
          <font>
-            <Font size="30.0" />
+            <Font size="54.0" />
          </font>
       </Label>
-      <TextField fx:id="bankTextField" layoutX="1008.0" layoutY="409.0" prefHeight="38.0" prefWidth="146.0">
+      <TextField fx:id="bankTextField" layoutX="1707.0" layoutY="458.0" prefHeight="50.0" prefWidth="250.0">
          <font>
-            <Font size="17.0" />
+            <Font size="24.0" />
          </font>
       </TextField>
-      <Label fx:id="winLoseLabel" layoutX="489.0" layoutY="713.0" prefHeight="75.0" prefWidth="136.0">
+      <Label fx:id="winLoseLabel" layoutX="1707.0" layoutY="699.0" prefHeight="75.0" prefWidth="250.0">
          <font>
-            <Font size="52.0" />
+            <Font size="96.0" />
          </font>
       </Label>
-      <Label layoutX="1008.0" layoutY="474.0" prefHeight="45.0" prefWidth="146.0" text="Last Game">
+      <Label layoutX="1707.0" layoutY="540.0" prefHeight="66.0" prefWidth="272.0" text="Last Game">
          <font>
-            <Font size="30.0" />
+            <Font size="54.0" />
          </font>
       </Label>
-      <TextField fx:id="lastGameTextField" layoutX="1008.0" layoutY="526.0" prefHeight="38.0" prefWidth="146.0">
+      <TextField fx:id="lastGameTextField" layoutX="1707.0" layoutY="613.0" prefHeight="50.0" prefWidth="250.0">
          <font>
-            <Font size="17.0" />
+            <Font size="24.0" />
          </font>
       </TextField>
-      <Button fx:id="spinButton" disable="true" layoutX="1009.0" layoutY="581.0" mnemonicParsing="false" onAction="#spinButtonClicked" prefHeight="115.0" prefWidth="146.0" text="SPIN!">
+      <Button fx:id="spinButton" disable="true" layoutX="1707.0" layoutY="879.0" mnemonicParsing="false" onAction="#spinButtonClicked" prefHeight="153.0" prefWidth="250.0" text="SPIN!">
          <font>
             <Font size="33.0" />
          </font>

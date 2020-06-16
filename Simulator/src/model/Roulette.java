@@ -19,6 +19,15 @@ public class Roulette {
     public void spin() throws InterruptedException {
         calculateRouletteBetFields();
         mainApp.getRouletteController().selectionAnimation();
+    }
+
+    private void calculateRouletteBetFields() {
+        for (String s : rouletteBets.keySet()) {
+            rouletteBets.get(s).calculateFields(s,mainApp.getRouletteController().getFields());
+        }
+    }
+
+    public void calcWinning() {
         HashMap<String,RouletteBet> winningBets = new HashMap<>();
         for (String s : rouletteBets.keySet()) {
             for (Integer s1 : rouletteBets.get(s).getFields()) {
@@ -26,8 +35,8 @@ public class Roulette {
                     winningBets.put(s,rouletteBets.get(s));
             }
         }
+        int win=0;
         if (!winningBets.isEmpty()){
-            int win=0;
             for (String s : winningBets.keySet()) {
                 if ((s.length()==1 || s.length()==2)&& !s.equals("0")){
                     win+=winningBets.get(s).getBet()*36;
@@ -40,12 +49,17 @@ public class Roulette {
             mainApp.getRouletteController().setWinLoseLabel("Win!");
         }else
             mainApp.getRouletteController().setWinLoseLabel("Lose!");
+        if (win>0){
+            mainApp.getRouletteController().getLastGame().setText("+"+ (win - getTotalBet()));
+        }else
+            mainApp.getRouletteController().getLastGame().setText(String.valueOf(win-getTotalBet()));
     }
 
-    private void calculateRouletteBetFields() {
-        for (String s : rouletteBets.keySet()) {
-            rouletteBets.get(s).calculateFields(s,mainApp.getRouletteController().getFields());
+    public int getTotalBet(){
+        int totalBet= 0;
+        for (RouletteBet value : rouletteBets.values()) {
+            totalBet+=value.getBet();
         }
+        return totalBet;
     }
-
 }
