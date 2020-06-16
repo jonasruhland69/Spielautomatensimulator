@@ -104,6 +104,7 @@ public class MainApp extends Application {
             slotmashineController.setMainApp(this);
             slotmashineController.updateBank();
             stage.show();
+            stage.setMaximized(true);
             stage.setFullScreen(true);
 
         }catch (IOException e) {
@@ -124,6 +125,7 @@ public class MainApp extends Application {
             rouletteController.updateBank();
             rouletteController.initializeFields();
             stage.show();
+            stage.setMaximized(true);
             rouletteController.getBetField().setEditable(false);
 
         } catch (IOException e) {
@@ -142,7 +144,7 @@ public class MainApp extends Application {
                 blackJackController.setMainApp(this);
                 blackJackController.updateBank();
                 stage.show();
-                stage.setFullScreen(true);
+                stage.setMaximized(true);
 
             }catch (IOException e) {
                 showLoadingError("Black Jack");
