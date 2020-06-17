@@ -10,11 +10,11 @@ import model.MainApp;
 import java.util.ArrayList;
 
 public class AccountViewController {
+    private final ArrayList<TreeItem<String>> accounts = new ArrayList<>();
     private MainApp mainApp;
-    private ArrayList<TreeItem<String>> accounts = new ArrayList<>();
 
     @FXML
-    private TreeView<String> accountsTreeView = new TreeView<>();
+    private final TreeView<String> accountsTreeView = new TreeView<>();
 
     @FXML
     private Label backToMainMenu;
@@ -24,7 +24,12 @@ public class AccountViewController {
         this.mainApp.loadStartScreen();
     }
 
-    public void addAccount(TreeItem<String> accountName){
+    /**
+     * Fuegt einen Account zur ArrayList accounts hinzu.
+     *
+     * @param accountName Name vom Account.
+     */
+    public void addAccount(TreeItem<String> accountName) {
         accounts.add(accountName);
     }
 
@@ -32,6 +37,9 @@ public class AccountViewController {
         this.mainApp = mainApp;
     }
 
+    /**
+     * Fuegt Tree Items zu Tree View hinzu.
+     */
     public void initializeTreeView() {
         TreeItem<String> root = new TreeItem<>("Accounts:");
         root.setExpanded(true);
@@ -41,8 +49,16 @@ public class AccountViewController {
         }
     }
 
+    /**
+     * Laedt bei Klick auf ein Tree Item den Account.
+     *
+     * @param mouseEvent Klick auf Button.
+     */
     public void treeItemClicked(MouseEvent mouseEvent) {
-
         mainApp.loadGame(accountsTreeView.getSelectionModel().getSelectedItem().getValue());
+    }
+
+    public ArrayList<TreeItem<String>> getAccounts() {
+        return accounts;
     }
 }

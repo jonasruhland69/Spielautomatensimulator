@@ -5,15 +5,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import model.MainApp;
-
-import java.io.File;
-import java.net.MalformedURLException;
-import java.util.Random;
-import java.util.regex.Pattern;
 
 public class SlotmachineController {
     private MainApp mainApp;
@@ -45,14 +39,16 @@ public class SlotmachineController {
     @FXML
     private Label backToMainMenu;
 
-    public SlotmachineController() throws MalformedURLException {
-    }
-
     @FXML
     void backtoGameSelection(MouseEvent event) {
         mainApp.loadGameSelection();
     }
 
+    /**
+     * Spin Methode in SlotMachine wird ausgefuehrt.
+     *
+     * @param event Klick auf Button.
+     */
     @FXML
     void spin(ActionEvent event) {
         mainApp.getSlotMachine().spin();
@@ -62,7 +58,7 @@ public class SlotmachineController {
         this.mainApp = mainApp;
     }
 
-    public void updateBank(){
+    public void updateBank() {
         bank.setText(String.valueOf(mainApp.getPlayer().getCoins()));
     }
 

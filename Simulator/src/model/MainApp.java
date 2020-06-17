@@ -11,89 +11,88 @@ import javafx.stage.Stage;
 
 import java.io.*;
 import java.net.MalformedURLException;
-import java.util.ArrayList;
-
 
 public class MainApp extends Application {
-        final int BLACKJACKCOSTS = 1000;
-        final int ROULETTECOSTS = 500;
-        Stage stage = new Stage();
-        Player player;
-        MainMenuController mainMenuController = new MainMenuController();
-        GameSelectionController gameSelectionController = new GameSelectionController();
-        AchievementController achievementController= new AchievementController();
-        SlotmachineController slotmashineController = new SlotmachineController();
-        StartScreenController startScreenController = new StartScreenController();
-        AccountViewController accountViewController = new AccountViewController();
-        BlackJackController blackJackController = new BlackJackController();
-        RouletteController rouletteController = new RouletteController();
-        SlotMachine slotMachine = new SlotMachine(this);
-        Roulette roulette = new Roulette(this);
-        BlackJack blackJack = new BlackJack(this);
+    final int SLOTMACHINECOSTS = 500;
+    final int ROULETTECOSTS = 1000;
+    Stage stage = new Stage();
+    Player player;
+    MainMenuController mainMenuController = new MainMenuController();
+    GameSelectionController gameSelectionController = new GameSelectionController();
+    SlotmachineController slotmashineController = new SlotmachineController();
+    StartScreenController startScreenController = new StartScreenController();
+    AccountViewController accountViewController = new AccountViewController();
+    BlackJackController blackJackController = new BlackJackController();
+    RouletteController rouletteController = new RouletteController();
+    SlotMachine slotMachine = new SlotMachine(this);
+    Roulette roulette = new Roulette(this);
+    BlackJack blackJack = new BlackJack(this);
 
     public MainApp() throws MalformedURLException {
     }
 
+    /**
+     * Launcht das Programm.
+     *
+     * @param args
+     */
+    public static void main(String[] args) {
+        launch(args);
+    }
 
+    /**
+     * Ruft loadStartScreen() auf.
+     *
+     * @param primaryStage Stage des gesamten Programms
+     */
     @Override
-        public void start(Stage primaryStage) throws Exception{
-            loadStartScreen();
-        }
+    public void start(Stage primaryStage) {
+        loadStartScreen();
+    }
 
-        public static void main(String[] args) {
-            launch(args);
-        }
-
-        public void loadStartScreen(){
-            try {
-                FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(getClass().getResource("../view/startScreen.fxml"));
-                Parent root = loader.load();
-                stage.setTitle("Spielautomatensimulator");
-                stage.setScene(new Scene(root));
-                startScreenController = loader.getController();
-                startScreenController.setMainApp(this);
-                stage.show();
-            }catch (IOException e){
-                showLoadingError("startScreen.fxml");
-            }
-        }
-
-        public void loadGameSelection(){
-            try {
-                FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(getClass().getResource("../view/gameSelection.fxml"));
-                Parent root = loader.load();
-                stage.setTitle("Spielautomatensimulator (Game Selection)");
-                stage.setScene(new Scene(root));
-                gameSelectionController = loader.getController();
-                gameSelectionController.setMainApp(this);
-                gameSelectionController.setCoins(player.getCoins());
-                gameSelectionController.updateOwnedGames();
-                stage.show();
-
-            }catch (IOException e) {
-                showLoadingError("Game Selection");
-            }
-        }
-
-    public void loadAchievemensts(){
+    /**
+     * Laedt den Start Screen und konfiguriert Controller.
+     */
+    public void loadStartScreen() {
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("../view/achievements.fxml"));
+            loader.setLocation(getClass().getResource("../view/startScreen.fxml"));
             Parent root = loader.load();
-            stage.setTitle("Spielautomatensimulator (Achievements)");
+            stage.setTitle("Spielautomatensimulator");
             stage.setScene(new Scene(root));
-            achievementController = loader.getController();
-            achievementController.setMainApp(this);
+            startScreenController = loader.getController();
+            startScreenController.setMainApp(this);
             stage.show();
-
-        }catch (IOException e) {
-            showLoadingError("Achievements");
+        } catch (IOException e) {
+            showLoadingError("startScreen.fxml");
         }
     }
 
-    public void loadSlotmaschine(){
+    /**
+     * Laedt die Game Selection, konfiguriert Controller, laedt die Coins des Spielers und laedt die gekauften Spiele.
+     */
+    public void loadGameSelection() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("../view/gameSelection.fxml"));
+            Parent root = loader.load();
+            stage.setTitle("Spielautomatensimulator (Game Selection)");
+            stage.setScene(new Scene(root));
+            gameSelectionController = loader.getController();
+            gameSelectionController.setMainApp(this);
+            gameSelectionController.setCoins(player.getCoins());
+            gameSelectionController.updateOwnedGames();
+            stage.show();
+
+        } catch (IOException e) {
+            showLoadingError("Game Selection");
+        }
+    }
+
+    /**
+     * Laedt die Slot Machine, konfiguriert Controller und laedt die Coins des Spielers.
+     */
+    public void loadSlotmaschine() {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("../view/slotmaschine.fxml"));
@@ -107,10 +106,14 @@ public class MainApp extends Application {
             stage.setMaximized(true);
             stage.setFullScreen(true);
 
-        }catch (IOException e) {
+        } catch (IOException e) {
             showLoadingError("Slot machine");
         }
     }
+
+    /**
+     * Laedt Roulette, konfiguriert Controller, laedt die Coins des Spielers und initialisiert die Felder.
+     */
 
     public void loadRoulette() {
         try {
@@ -133,26 +136,33 @@ public class MainApp extends Application {
         }
     }
 
-        public void loadBlackJack(){
-            try {
-                FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(getClass().getResource("../view/blackJack.fxml"));
-                Parent root = loader.load();
-                stage.setTitle("Spielautomatensimulator (Black Jack)");
-                stage.setScene(new Scene(root));
-                blackJackController = loader.getController();
-                blackJackController.setMainApp(this);
-                blackJackController.updateBank();
-                stage.show();
-                stage.setMaximized(true);
+    /**
+     * Laedt den Black Jack, konfiguriert Controller und laedt die Coins des Spielers.
+     */
+    public void loadBlackJack() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("../view/blackJack.fxml"));
+            Parent root = loader.load();
+            stage.setTitle("Spielautomatensimulator (Black Jack)");
+            stage.setScene(new Scene(root));
+            blackJackController = loader.getController();
+            blackJackController.setMainApp(this);
+            blackJackController.updateBank();
+            stage.show();
+            stage.setMaximized(true);
 
-            }catch (IOException e) {
-                showLoadingError("Black Jack");
-            }
+        } catch (IOException e) {
+            showLoadingError("Black Jack");
         }
+    }
 
-        public void loadMainMenu() {
-            try {
+    /**
+     * Laedt das Main Menue, konfiguriert Controller und laedt die Coins des Spielers und den Spielernamen.
+     */
+
+    public void loadMainMenu() {
+        try {
             stage.sizeToScene();
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("../view/mainMenu.fxml"));
@@ -166,12 +176,16 @@ public class MainApp extends Application {
             mainMenuController.setPlayerLabel(player.getName());
             stage.show();
 
-            } catch (IOException e) {
-                showLoadingError("Main Menu");
-            }
+        } catch (IOException e) {
+            showLoadingError("Main Menu");
         }
+    }
 
-    public void loadAccountView(){
+    /**
+     * Laedt die Account View, konfiguriert den Controller und laedt alle Save Dateien.
+     */
+
+    public void loadAccountView() {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("../view/accountView.fxml"));
@@ -183,7 +197,7 @@ public class MainApp extends Application {
             File file = new File("./");
             File[] files = file.listFiles();
             for (int i = 0; i < files.length; i++) {
-                if (files[i].getName().endsWith(".bin")){
+                if (files[i].getName().endsWith(".bin")) {
                     TreeItem treeItem = new TreeItem(files[i].getName());
                     accountViewController.addAccount(treeItem);
                 }
@@ -191,21 +205,33 @@ public class MainApp extends Application {
             accountViewController.initializeTreeView();
             stage.show();
 
-        }catch (IOException e) {
+        } catch (IOException e) {
             showLoadingError("Account View");
         }
     }
 
-        public void showLoadingError(String view){
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Loading Error");
-            alert.setHeaderText("Error:");
-            alert.setContentText("Could not load " + view +"!");
-            alert.showAndWait();
-        }
+    /**
+     * Zur Ausgabe von Error Alert Boxes.
+     *
+     * @param view Der Name der View.
+     */
+
+    public void showLoadingError(String view) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Loading Error");
+        alert.setHeaderText("Error:");
+        alert.setContentText("Could not load " + view + "!");
+        alert.showAndWait();
+    }
+
+    /**
+     * Laedt eine Save Datei.
+     *
+     * @param path Pfad der Save Datei.
+     */
 
     public void loadGame(String path) {
-        try(ObjectInputStream ois = new ObjectInputStream(new BufferedInputStream(new FileInputStream(path)))){
+        try (ObjectInputStream ois = new ObjectInputStream(new BufferedInputStream(new FileInputStream(path)))) {
             player = (Player) ois.readObject();
             loadMainMenu();
         } catch (IOException e) {
@@ -215,8 +241,12 @@ public class MainApp extends Application {
         }
     }
 
+    /**
+     * Speichert das Spiel mit dem Namen des Spielers.bin
+     */
+
     public void save() {
-        try (ObjectOutputStream dos = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(player.getName() + ".bin")))){
+        try (ObjectOutputStream dos = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(player.getName() + ".bin")))) {
             dos.writeObject(player);
             dos.flush();
         } catch (FileNotFoundException e) {
@@ -227,16 +257,16 @@ public class MainApp extends Application {
 
     }
 
-    public void setPlayer(Player player){
-            this.player= player;
-    }
-
     public Player getPlayer() {
         return player;
     }
 
-    public int getBLACKJACKCOSTS() {
-        return BLACKJACKCOSTS;
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
+    public int getSLOTMACHINECOSTS() {
+        return SLOTMACHINECOSTS;
     }
 
     public int getROULETTECOSTS() {
@@ -265,5 +295,9 @@ public class MainApp extends Application {
 
     public RouletteController getRouletteController() {
         return rouletteController;
+    }
+
+    public AccountViewController getAccountViewController() {
+        return accountViewController;
     }
 }

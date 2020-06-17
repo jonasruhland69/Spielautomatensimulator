@@ -9,15 +9,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import model.MainApp;
 
-
-
-
-import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
-import model.Player;
-
 public class MainMenuController {
     private MainApp mainApp;
 
@@ -61,39 +52,56 @@ public class MainMenuController {
     private Label playerLabel;
 
 
+    /**
+     * Speichert das Spiel.
+     *
+     * @param event Klick auf Button.
+     */
     @FXML
     void clickOnSaveButton(ActionEvent event) {
         mainApp.save();
     }
 
+    /**
+     * Schiesst das Spiel.
+     *
+     * @param event Klick auf Button.
+     */
     @FXML
     void close(MouseEvent event) {
+        mainApp.save();
         Platform.exit();
     }
 
-    @FXML
-    void openAchievements(MouseEvent event) {
-            mainApp.loadAchievemensts();
-    }
-
+    /**
+     * Laedt Game Selection.
+     *
+     * @param event Klick auf Button.
+     */
     @FXML
     void openGameSelection(MouseEvent event) {
         mainApp.loadGameSelection();
-
     }
 
+    /**
+     * Laedt Account View.
+     *
+     * @param event Klick auf Button.
+     */
     @FXML
     void clickOnLoadButton(ActionEvent event) {
         mainApp.loadAccountView();
     }
 
-    public void setPlayerLabel(String name){
+    public void setPlayerLabel(String name) {
         playerLabel.setText(name);
     }
+
     public void setMainApp(MainApp mainApp) {
         this.mainApp = mainApp;
     }
-    public void setCoins(int coins){
+
+    public void setCoins(int coins) {
         coinsLabel.setText(String.valueOf(coins));
     }
 

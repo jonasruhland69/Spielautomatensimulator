@@ -1,71 +1,87 @@
 package model;
 
-import controller.BlackJackController;
-
 import java.io.File;
 import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.regex.Pattern;
 
 public class BlackJack {
-    private MainApp mainApp;
-    private ArrayList<Character> cards = new ArrayList<>();
+    private final MainApp mainApp;
+    private final ArrayList<Character> cards = new ArrayList<>();
     private char[] playerCards = new char[7];
     private char[] opponentCards = new char[7];
-    private String url = System.getProperty("user.dir")+ File.separator+"src"+File.separator+"view"+File.separator+
-            "Images" + File.separator+"BlackJackCard";
+    private final String url = System.getProperty("user.dir") + File.separator + "src" + File.separator + "view" + File.separator +
+            "Images" + File.separator + "BlackJackCard";
 
 
-    public void setUpCards(){
+    public BlackJack(MainApp mainApp) {
+        this.mainApp = mainApp;
+    }
+
+    /**
+     * Kartendeck wird erstellt
+     */
+    public void setUpCards() {
         cards.clear();
-        char[] cardTypes= {'2','3','4','5','6','7','8','9','1','J','Q','K','A'};
+        char[] cardTypes = {'2', '3', '4', '5', '6', '7', '8', '9', '1', 'J', 'Q', 'K', 'A'};
         for (int i = 0; i < 13; i++) {
             for (int j = 0; j < 4; j++) {
-                cards.add(i*4+j,cardTypes[i]);;
+                cards.add(i * 4 + j, cardTypes[i]);
             }
         }
     }
 
-    public char getRandomCard(int max, int min){
+    /**
+     * Zufaellige Karte wird gesucht.
+     *
+     * @param max Maximaler Index der Karte.
+     * @param min Minimaler Index der Karte.
+     * @return Zufaellige Karte.
+     */
+    public char getRandomCard(int max, int min) {
         Random r = new Random();
-        int random = r.nextInt((max - min) + 1) +min;
-        while (random==' ')
-            random = r.nextInt((max - min) + 1) +min;
+        int random = r.nextInt((max - min) + 1) + min;
+        while (random == ' ')
+            random = r.nextInt((max - min) + 1) + min;
 
         char card = cards.get(random);
         cards.remove(random);
         return card;
     }
 
+    /**
+     * Deck wird erstellt, 7 Karten werden gezogen, die ersten 2 werden umgedreht und der Kartenwert wird aktualisiert.
+     *
+     * @throws MalformedURLException
+     */
     public void play() throws MalformedURLException {
-
-            setUpCards();
-            playerCards= new char[7];
-            opponentCards= new char[7];
-            playerCards[0] = getRandomCard(cards.size()-1,0);
-            playerCards[1] = getRandomCard(cards.size()-1,0);
-            mainApp.getBlackJackController().updatePlayerCards();;
-            mainApp.getBlackJackController().updatePlayerCardValue();
+        setUpCards();
+        playerCards = new char[7];
+        opponentCards = new char[7];
+        playerCards[0] = getRandomCard(cards.size() - 1, 0);
+        playerCards[1] = getRandomCard(cards.size() - 1, 0);
+        mainApp.getBlackJackController().updatePlayerCards();
+        mainApp.getBlackJackController().updatePlayerCardValue();
 
     }
 
+    /**
+     * Gegner macht automatisch seine Zuege
+     *
+     * @throws MalformedURLException
+     */
     public void opponentTurn() throws MalformedURLException {
         setUpCards();
-        opponentCards[0] = getRandomCard(cards.size()-1,0);
-        opponentCards[1] = getRandomCard(cards.size()-1,0);
+        opponentCards[0] = getRandomCard(cards.size() - 1, 0);
+        opponentCards[1] = getRandomCard(cards.size() - 1, 0);
         mainApp.getBlackJackController().updateOpponentCards();
         mainApp.getBlackJackController().updateOpponentCardValue();
-        while (!checkStand()){
+        while (!checkIfStand()) {
             pullCard(opponentCards);
             mainApp.getBlackJackController().updateOpponentCards();
             mainApp.getBlackJackController().updateOpponentCardValue();
         }
         mainApp.getBlackJackController().calculateWinner();
-    }
-
-    public BlackJack(MainApp mainApp) {
-        this.mainApp = mainApp;
     }
 
     public char[] getPlayerCards() {
@@ -80,19 +96,29 @@ public class BlackJack {
         return url;
     }
 
+    /**
+     * Zufaellige Karte wird aus Deck ausgewaehlt.
+     *
+     * @param cards
+     */
     public void pullCard(char[] cards) {
         for (int i = 0; i < cards.length; i++) {
-            if (cards[i]=='\u0000'){
-                cards[i] = getRandomCard(this.cards.size()-1,0);
+            if (cards[i] == '\u0000') {
+                cards[i] = getRandomCard(this.cards.size() - 1, 0);
                 i = cards.length;
             }
         }
     }
 
-    public boolean checkStand(){
+    /**
+     * Es wird ermittelt, ob der Gegner noch eine Karte ziehen soll.
+     *
+     * @return Wenn noch Karte gezogen wird false       ansonsten true
+     */
+    public boolean checkIfStand() {
         Random r = new Random();
-        int random = r.nextInt((100 - 1) + 1) +1;
-        if (Integer.parseInt(mainApp.getBlackJackController().getOpponentCardValue().getText())>=12) {
+        int random = r.nextInt((100 - 1) + 1) + 1;
+        if (Integer.parseInt(mainApp.getBlackJackController().getOpponentCardValue().getText()) >= 12) {
             switch (Integer.parseInt(mainApp.getBlackJackController().getOpponentCardValue().getText())) {
                 case 12:
                     if (random > 30)

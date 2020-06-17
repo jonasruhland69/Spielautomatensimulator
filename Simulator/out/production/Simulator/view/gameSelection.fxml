@@ -8,7 +8,7 @@
 
 <AnchorPane prefHeight="531.0" prefWidth="801.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GameSelectionController">
    <children>
-      <Label fx:id="backToMainMenu" layoutX="21.0" layoutY="45.0" onMouseClicked="#backClicked" prefHeight="51.0" prefWidth="122.0" text="&lt;Back">
+      <Label fx:id="backToMainMenu" layoutX="21.0" layoutY="45.0" onMouseClicked="#backClicked" prefHeight="51.0" prefWidth="122.0" text="&lt;Back" AnchorPane.leftAnchor="21.0" AnchorPane.topAnchor="45.0">
          <font>
             <Font size="35.0" />
          </font>
@@ -18,41 +18,41 @@
             <Font size="46.0" />
          </font>
       </Label>
-      <Label fx:id="slotmachineSelection" layoutX="145.0" layoutY="144.0" onMouseClicked="#openSlotmaschine" prefHeight="71.0" prefWidth="512.0" style="-fx-background-color: #ffcc33;" text=" Slotmachine">
+      <Label fx:id="slotmachineSelection" layoutX="142.0" layoutY="258.0" onMouseClicked="#openSlotmachine" prefHeight="71.0" prefWidth="512.0" style="-fx-background-color: grey;" text=" Slotmachine">
          <font>
             <Font size="22.0" />
          </font></Label>
-      <Label fx:id="rouletteSelection" layoutX="145.0" layoutY="254.0" onMouseClicked="#openRoulette" prefHeight="71.0" prefWidth="512.0" style="-fx-background-color: grey;" text=" Roulette">
+      <Label fx:id="rouletteSelection" layoutX="142.0" layoutY="375.0" onMouseClicked="#openRoulette" prefHeight="71.0" prefWidth="512.0" style="-fx-background-color: grey;" text=" Roulette">
          <font>
             <Font size="22.0" />
          </font></Label>
-      <Label fx:id="blackJackSelection" layoutX="145.0" layoutY="366.0" onMouseClicked="#openBlackJack" prefHeight="71.0" prefWidth="512.0" style="-fx-background-color: grey;" text=" Black Jack">
+      <Label fx:id="blackJackSelection" layoutX="142.0" layoutY="140.0" onMouseClicked="#openBlackJack" prefHeight="71.0" prefWidth="512.0" style="-fx-background-color: #ffcc33;" text=" Black Jack">
          <font>
             <Font size="22.0" />
          </font></Label>
-      <ImageView fitHeight="71.0" fitWidth="49.0" layoutX="592.0" layoutY="147.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="71.0" fitWidth="49.0" layoutX="589.0" layoutY="261.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/slots_spielauswahl2.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="65.0" fitWidth="49.0" layoutX="592.0" layoutY="257.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="65.0" fitWidth="49.0" layoutX="589.0" layoutY="378.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/roulette_spielauswahl.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="65.0" fitWidth="49.0" layoutX="593.0" layoutY="370.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="65.0" fitWidth="49.0" layoutX="591.0" layoutY="144.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/Black_Jack_spielauswahl.jpg" />
          </image>
       </ImageView>
-      <Label fx:id="coinsLabelBlackJack" layoutX="405.0" layoutY="394.0" text="1000" />
-      <ImageView fx:id="coinPicture1" fitHeight="33.0" fitWidth="85.0" layoutX="365.0" layoutY="386.0" pickOnBounds="true" preserveRatio="true">
+      <Label fx:id="coinsLabelRoulett" layoutX="404.0" layoutY="402.0" text="1000" />
+      <ImageView fx:id="coinPicture1" fitHeight="33.0" fitWidth="85.0" layoutX="364.0" layoutY="394.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/Coin.png" />
          </image>
       </ImageView>
-      <Label fx:id="coinsLabelRoulette" layoutX="411.0" layoutY="281.0" text="500" />
-      <ImageView fx:id="coinPicture11" fitHeight="33.0" fitWidth="85.0" layoutX="371.0" layoutY="273.0" pickOnBounds="true" preserveRatio="true">
+      <Label fx:id="coinsLabelSlotMachine" layoutX="404.0" layoutY="285.0" text="500" />
+      <ImageView fx:id="coinPicture11" fitHeight="33.0" fitWidth="85.0" layoutX="364.0" layoutY="277.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/Coin.png" />
          </image>
