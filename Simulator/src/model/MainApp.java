@@ -198,8 +198,7 @@ public class MainApp extends Application {
             File[] files = file.listFiles();
             for (int i = 0; i < files.length; i++) {
                 if (files[i].getName().endsWith(".bin")) {
-                    TreeItem treeItem = new TreeItem(files[i].getName());
-                    accountViewController.addAccount(treeItem);
+                    accountViewController.addAccount(new TreeItem(files[i].getName()));
                 }
             }
             accountViewController.initializeTreeView();
