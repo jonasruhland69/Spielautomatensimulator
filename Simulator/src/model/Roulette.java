@@ -2,9 +2,9 @@ package model;
 
 import java.util.HashMap;
 
-public class Roulette {
-    MainApp mainApp;
-    HashMap<String, RouletteBet> rouletteBets = new HashMap<>();
+public class Roulette implements Playable{
+    private MainApp mainApp;
+    private HashMap<String, RouletteBet> rouletteBets = new HashMap<>();
 
     public Roulette(MainApp mainApp) {
         this.mainApp = mainApp;
@@ -17,11 +17,15 @@ public class Roulette {
     /**
      * Einsaetze werden eingelesen und Auswahlanimation wird angezeigt.
      *
-     * @throws InterruptedException
      */
-    public void spin() throws InterruptedException {
-        calculateRouletteBetFields();
-        mainApp.getRouletteController().selectionAnimation();
+    @Override
+    public void startGame(){
+        try {
+            calculateRouletteBetFields();
+            mainApp.getRouletteController().selectionAnimation();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     /**

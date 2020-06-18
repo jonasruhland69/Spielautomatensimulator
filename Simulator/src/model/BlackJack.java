@@ -5,7 +5,7 @@ import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class BlackJack {
+public class BlackJack implements Playable{
     private final MainApp mainApp;
     private final ArrayList<Character> cards = new ArrayList<>();
     private char[] playerCards = new char[7];
@@ -51,17 +51,20 @@ public class BlackJack {
 
     /**
      * Deck wird erstellt, 7 Karten werden gezogen, die ersten 2 werden umgedreht und der Kartenwert wird aktualisiert.
-     *
-     * @throws MalformedURLException
      */
-    public void play() throws MalformedURLException {
-        setUpCards();
-        playerCards = new char[7];
-        opponentCards = new char[7];
-        playerCards[0] = getRandomCard(cards.size() - 1, 0);
-        playerCards[1] = getRandomCard(cards.size() - 1, 0);
-        mainApp.getBlackJackController().updatePlayerCards();
-        mainApp.getBlackJackController().updatePlayerCardValue();
+    @Override
+    public void startGame(){
+        try {
+            mainApp.getBlackJackController().updatePlayerCards();
+            setUpCards();
+            playerCards = new char[7];
+            opponentCards = new char[7];
+            playerCards[0] = getRandomCard(cards.size() - 1, 0);
+            playerCards[1] = getRandomCard(cards.size() - 1, 0);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+            mainApp.getBlackJackController().updatePlayerCardValue();
+        }
 
     }
 

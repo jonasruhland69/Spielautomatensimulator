@@ -247,7 +247,7 @@ public class MainApp extends Application {
     }
 
     /**
-     * Fügt Accounts von Save Files zu Account View Controller hinzu.
+     * Fuegt Accounts von Save Files zu Account View Controller hinzu.
      */
     public void readSaveFiles(){
         File file = new File("./");

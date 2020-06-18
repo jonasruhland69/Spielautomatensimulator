@@ -3,8 +3,7 @@ package model;
 import java.io.Serializable;
 import java.util.HashMap;
 
-public class Player implements Serializable {
-    private static final long serialVersionUID = -5595229778182018687L;
+public class Player{
     private String name;
     private int coins;
     private final HashMap<String, Boolean> ownedGames = new HashMap<>();

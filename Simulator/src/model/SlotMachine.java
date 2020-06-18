@@ -7,7 +7,7 @@ import java.net.MalformedURLException;
 import java.util.Random;
 import java.util.regex.Pattern;
 
-public class SlotMachine {
+public class SlotMachine implements Playable{
     private final MainApp mainApp;
     private final String url = System.getProperty("user.dir") + File.separator + "src" + File.separator + "view" + File.separator +
             "Images" + File.separator;
@@ -36,7 +36,8 @@ public class SlotMachine {
     /**
      * Wenn Eingabe richtig, wird Bet gruen gemacht, die slots werden zufaellig ausgelost und ausgewertet.
      */
-    public void spin() {
+    @Override
+    public void startGame() {
         int bilanz = 0;
         //ueberpruefung, ob Eingabe richtig
         if (Pattern.matches("\\d+", mainApp.getSlotmashineController().getBet().getText()) && Integer.parseInt(mainApp.getSlotmashineController().getBet().getText()) <= mainApp.getPlayer().getCoins()) {

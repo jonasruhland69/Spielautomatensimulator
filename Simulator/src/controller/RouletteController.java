@@ -228,7 +228,7 @@ public class RouletteController {
      */
     @FXML
     void spinButtonClicked() throws InterruptedException {
-        mainApp.getRoulette().spin();
+        mainApp.getRoulette().startGame();
         updateBank();
         betField.setEditable(false);
         spinButton.setDisable(true);

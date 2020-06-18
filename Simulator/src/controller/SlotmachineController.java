@@ -51,7 +51,7 @@ public class SlotmachineController {
      */
     @FXML
     void spin(ActionEvent event) {
-        mainApp.getSlotMachine().spin();
+        mainApp.getSlotMachine().startGame();
     }
 
     public void setMainApp(MainApp mainApp) {

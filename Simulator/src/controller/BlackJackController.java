@@ -112,7 +112,7 @@ public class BlackJackController {
             resetCards();
             playerCardValue.setText("0");
             opponentCardValue.setText("0");
-            mainApp.getBlackJack().play();
+            mainApp.getBlackJack().startGame();
             winLoseLabel.setText("");
             hitButton.setDisable(false);
             standButton.setDisable(false);
