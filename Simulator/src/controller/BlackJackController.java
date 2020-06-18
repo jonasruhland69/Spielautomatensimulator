@@ -92,7 +92,7 @@ public class BlackJackController {
         updatePlayerCards();
         updatePlayerCardValue();
         if (Integer.parseInt(playerCardValue.getText()) > 21) {
-            gameLost();
+            mainApp.getBlackJack().opponentTurn();
         }
     }
 
@@ -280,18 +280,24 @@ public class BlackJackController {
      * Vergleicht Kartenwerte, fuehrt je nach dem Won oder Lost Methode aus und deaktiviert Spielbuttons.
      */
     public void calculateWinner() {
-        if (Integer.parseInt(opponentCardValue.getText()) < Integer.parseInt(playerCardValue.getText()) || Integer.parseInt(opponentCardValue.getText()) > 21) {
+        if (!(Integer.parseInt(playerCardValue.getText()) > 21)) {
+            if (Integer.parseInt(opponentCardValue.getText()) < Integer.parseInt(playerCardValue.getText()) || Integer.parseInt(opponentCardValue.getText()) > 21) {
+                gameWon();
+            } else if (Integer.parseInt(opponentCardValue.getText()) > Integer.parseInt(playerCardValue.getText())) {
+                gameLost();
+            } else {
+                winLoseLabel.setText("Draw!");
+                playButton.setDisable(false);
+                hitButton.setDisable(true);
+                standButton.setDisable(true);
+                updateBank();
+                betField.setEditable(true);
+            }
+        } else if (Integer.parseInt(opponentCardValue.getText()) >21){
             gameWon();
-        } else if (Integer.parseInt(opponentCardValue.getText()) > Integer.parseInt(playerCardValue.getText())) {
-            gameLost();
-        } else {
-            winLoseLabel.setText("Draw!");
-            playButton.setDisable(false);
-            hitButton.setDisable(true);
-            standButton.setDisable(true);
-            updateBank();
-            betField.setEditable(true);
         }
+        else
+            gameLost();
         backToGameSelection.setDisable(false);
     }
 }

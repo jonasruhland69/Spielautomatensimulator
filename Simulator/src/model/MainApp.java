@@ -103,8 +103,6 @@ public class MainApp extends Application {
             slotmashineController.setMainApp(this);
             slotmashineController.updateBank();
             stage.show();
-            stage.setMaximized(true);
-            stage.setFullScreen(true);
 
         } catch (IOException e) {
             showLoadingError("Slot machine");
@@ -128,7 +126,6 @@ public class MainApp extends Application {
             rouletteController.updateBank();
             rouletteController.initializeFields();
             stage.show();
-            stage.setMaximized(true);
             rouletteController.getBetField().setEditable(false);
 
         } catch (IOException e) {
@@ -150,7 +147,6 @@ public class MainApp extends Application {
             blackJackController.setMainApp(this);
             blackJackController.updateBank();
             stage.show();
-            stage.setMaximized(true);
 
         } catch (IOException e) {
             showLoadingError("Black Jack");
@@ -194,14 +190,7 @@ public class MainApp extends Application {
             stage.setScene(new Scene(root));
             accountViewController = loader.getController();
             accountViewController.setMainApp(this);
-            File file = new File("./");
-            File[] files = file.listFiles();
-            for (int i = 0; i < files.length; i++) {
-                if (files[i].getName().endsWith(".bin")) {
-                    TreeItem treeItem = new TreeItem(files[i].getName());
-                    accountViewController.addAccount(treeItem);
-                }
-            }
+            readSaveFiles();
             accountViewController.initializeTreeView();
             stage.show();
 
@@ -255,6 +244,19 @@ public class MainApp extends Application {
             e.printStackTrace();
         }
 
+    }
+
+    /**
+     * Fügt Accounts von Save Files zu Account View Controller hinzu.
+     */
+    public void readSaveFiles(){
+        File file = new File("./");
+        File[] files = file.listFiles();
+        for (int i = 0; i < files.length; i++) {
+            if (files[i].getName().endsWith(".bin")) {
+                accountViewController.addAccount(new TreeItem(files[i].getName().replace(".bin","")));
+            }
+        }
     }
 
     public Player getPlayer() {
